@@ -14,6 +14,22 @@ All colors MUST be HSL.
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/fonts/DMSans_18pt-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/fonts/DMSans_18pt-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 @layer base {
   :root {
@@ -110,13 +126,15 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    font-weight: 500;
     font-feature-settings: "kern" 1;
     text-rendering: optimizeLegibility;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Computer Modern Serif', 'Georgia', serif;
-    font-weight: 400;
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    font-weight: 700;
     letter-spacing: -0.02em;
   }
 }

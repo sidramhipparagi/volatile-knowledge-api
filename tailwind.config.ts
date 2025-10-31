@@ -15,7 +15,7 @@ export default {
     extend: {
       fontFamily: {
         serif: ['Computer Modern Serif', 'Georgia', 'serif'],
-        sans: ['system-ui', '-apple-system', 'sans-serif'],
+        sans: ['DM Sans', 'system-ui', '-apple-system', 'sans-serif'],
         nova: ['NOVA BOLD', 'monospace'],
       },
       colors: {
