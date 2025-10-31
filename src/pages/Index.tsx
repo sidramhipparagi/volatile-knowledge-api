@@ -7,21 +7,21 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section - Empty placeholder */}
-      <section className="pt-32 pb-20 px-6">
+      <section className="min-h-screen pt-32 pb-20 px-6">
         <div className="max-w-7xl mx-auto">
           {/* Content will be added here */}
         </div>
       </section>
 
       {/* Features Section - Empty placeholder */}
-      <section className="py-20 px-6">
+      <section className="min-h-screen py-20 px-6">
         <div className="max-w-7xl mx-auto">
           {/* Content will be added here */}
         </div>
       </section>
 
       {/* Additional Section - Empty placeholder */}
-      <section className="py-20 px-6">
+      <section className="min-h-screen py-20 px-6">
         <div className="max-w-7xl mx-auto">
           {/* Content will be added here */}
         </div>
