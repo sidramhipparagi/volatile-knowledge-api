@@ -4,7 +4,7 @@ export const Footer = () => {
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="font-nova text-lg tracking-wider mb-4">VOLATILE ENGINE</h3>
+            <h3 className="font-nova text-lg tracking-wider mb-4 text-primary">VOLATILE ENGINE</h3>
             <p className="text-sm text-muted-foreground">
               Web knowledge API for developers
             </p>
