@@ -6,6 +6,15 @@
 All colors MUST be HSL.
 */
 
+@font-face {
+  font-family: 'NOVA BOLD';
+  src: url('/fonts/NOVABOLD.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 @layer base {
   :root {
     --background: 0 0% 98%;
