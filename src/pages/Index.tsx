@@ -1,10 +1,16 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { RotatingOrb } from "@/components/RotatingOrb";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Navigation />
+      
+      {/* 3D Rotating Orb */}
+      <div className="pt-20">
+        <RotatingOrb />
+      </div>
       
       {/* Hero Section - Empty placeholder */}
       <section className="min-h-screen pt-32 pb-20 px-6">
