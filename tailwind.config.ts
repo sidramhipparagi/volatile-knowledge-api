@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         serif: ['Computer Modern Serif', 'Georgia', 'serif'],
         sans: ['system-ui', '-apple-system', 'sans-serif'],
+        nova: ['Nova Mono', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",
