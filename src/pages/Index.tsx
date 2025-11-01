@@ -1,5 +1,6 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { MeshBackground } from "@/components/MeshBackground";
 import { Button } from "@/components/ui/button";
 import { MoveUpRight } from "lucide-react";
 
@@ -9,7 +10,8 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="min-h-screen pt-32 pb-20 px-6 flex items-center justify-center">
+      <section className="min-h-screen pt-32 pb-20 px-6 flex items-center justify-center relative">
+        <MeshBackground />
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-6xl font-sans font-bold mb-12">
             Building AI Powered Software
