@@ -1,12 +1,9 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { MoveUpRight, ArrowRight } from "lucide-react";
-import { useState } from "react";
+import { MoveUpRight } from "lucide-react";
 
 const Index = () => {
-  const [isHeroButtonHovered, setIsHeroButtonHovered] = useState(false);
-
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -17,26 +14,8 @@ const Index = () => {
           <h1 className="text-6xl font-sans font-bold mb-12">
             Building AI Powered Software
           </h1>
-          <Button 
-            size="pill" 
-            className="gap-2 text-lg px-12 py-6 h-auto group relative overflow-hidden"
-            onMouseEnter={() => setIsHeroButtonHovered(true)}
-            onMouseLeave={() => setIsHeroButtonHovered(false)}
-          >
-            <div className="relative w-6 h-6">
-              <MoveUpRight 
-                className={`h-6 w-6 absolute transition-all duration-300 ${
-                  isHeroButtonHovered ? 'opacity-0 -translate-y-1' : 'opacity-100 translate-y-0'
-                }`}
-                strokeWidth={2.5}
-              />
-              <ArrowRight 
-                className={`h-6 w-6 absolute transition-all duration-300 ${
-                  isHeroButtonHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'
-                }`}
-                strokeWidth={2.5}
-              />
-            </div>
+          <Button size="pill" className="gap-2 text-lg px-12 py-6 h-auto group">
+            <MoveUpRight className="h-6 w-6 transition-transform duration-300 group-hover:rotate-[-45deg] group-hover:translate-y-[-2px]" strokeWidth={3} />
             Create API Key
           </Button>
         </div>
