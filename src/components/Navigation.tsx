@@ -3,7 +3,7 @@ import { MoveUpRight } from "lucide-react";
 
 export const Navigation = () => {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background">
+    <nav className="fixed top-0 left-0 right-0 z-70 bg-background">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <div className="font-nova text-3xl tracking-wider">VO</div>
         <div className="flex items-center gap-8">
