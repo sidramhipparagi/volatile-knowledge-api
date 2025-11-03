@@ -2,6 +2,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { MoveUpRight } from "lucide-react";
+import apiFeatureImage from "@/assets/api-feature-illustration.jpg";
 
 const Index = () => {
   return (
@@ -27,8 +28,8 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="rounded-full overflow-hidden aspect-video bg-muted h-96">
               <img 
-                src="/placeholder.svg" 
-                alt="Feature illustration" 
+                src={apiFeatureImage} 
+                alt="AI-powered API platform with digital network visualization" 
                 className="w-full h-full object-cover"
               />
             </div>
