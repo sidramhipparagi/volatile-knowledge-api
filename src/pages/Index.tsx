@@ -15,7 +15,7 @@ const Index = () => {
             Building AI Powered Software
           </h1>
           <Button size="pill" className="gap-2 text-lg px-12 py-6 h-auto group">
-            <MoveUpRight className="h-6 w-6 transition-transform duration-300 group-hover:rotate-[-45deg] group-hover:translate-y-[-2px]" strokeWidth={3} />
+            <MoveUpRight className="h-7 w-7 transition-transform duration-300 group-hover:rotate-[45deg]" strokeWidth={2.5} />
             Create API Key
           </Button>
         </div>

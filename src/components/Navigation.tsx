@@ -8,7 +8,7 @@ export const Navigation = () => {
       <div className="font-nova text-xl tracking-wider">VOLATILE ENGINE</div>
         <div className="flex items-center gap-8">
           <Button size="pill" className="gap-2 group">
-            <MoveUpRight className="h-5 w-5 transition-transform duration-300 group-hover:rotate-[-45deg] group-hover:translate-y-[-2px]" strokeWidth={3} />
+            <MoveUpRight className="h-6 w-6 transition-transform duration-300 group-hover:rotate-[45deg]" strokeWidth={2.5} />
             Get Started
           </Button>
         </div>
