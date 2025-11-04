@@ -14,7 +14,7 @@ const Index = () => {
       <section className="min-h-screen pt-32 pb-20 px-6 flex items-center relative">
         <div className="absolute inset-0 flex items-center">
           <div 
-            className="w-[70%] h-[75vh] rounded-xl ml-32"
+            className="w-[70%] h-[75vh] rounded-xl ml-32 mt-32"
             style={{
               backgroundImage: `url(${heroGradient})`,
               backgroundSize: 'cover',
@@ -22,14 +22,18 @@ const Index = () => {
             }}
           />
         </div>
-        <div className="max-w-7xl mx-auto w-full relative z-10 flex items-center justify-between">
-          <h1 className="text-4xl font-sans font-bold text-white">
-            Building AI Powered Software
-          </h1>
-          <Button size="pill" className="gap-2 text-lg px-12 py-6 h-auto group">
-            <MoveUpRight className="h-7 w-7 transition-transform duration-300 group-hover:rotate-[45deg]" strokeWidth={2.5} />
-            Create API Key
-          </Button>
+        <div className="max-w-7xl mx-auto w-full relative z-10">
+          <div className="flex items-start justify-between">
+            <div className="w-[70%] flex items-center justify-center ml-32 mt-32">
+              <h1 className="text-4xl font-sans font-bold text-white">
+                Building AI Powered Software
+              </h1>
+            </div>
+            <div className="flex items-center gap-2 font-bold text-black mt-32">
+              <span className="text-lg">Create API Key</span>
+              <MoveUpRight className="h-7 w-7" strokeWidth={2.5} />
+            </div>
+          </div>
         </div>
       </section>
 
