@@ -26,7 +26,7 @@ const Index = () => {
       <section className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="rounded-full overflow-hidden aspect-video bg-muted h-96">
+            <div className="rounded-full overflow-hidden aspect-video bg-muted h-72">
               <img 
                 src={apiFeatureImage} 
                 alt="AI-powered API platform with digital network visualization" 
