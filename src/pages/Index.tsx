@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { MoveUpRight } from "lucide-react";
 import apiFeatureImage from "@/assets/api-feature-illustration.jpg";
+import heroGradient from "@/assets/hero-gradient.png";
 
 const Index = () => {
   return (
@@ -10,9 +11,17 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="min-h-screen pt-32 pb-20 px-6 flex items-center justify-center relative">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl font-sans font-bold mb-12">
+      <section className="min-h-screen pt-32 pb-20 px-6 flex items-center relative overflow-hidden">
+        <div 
+          className="absolute inset-0 -left-32"
+          style={{
+            backgroundImage: `url(${heroGradient})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center left',
+          }}
+        />
+        <div className="max-w-7xl mx-auto w-full relative z-10 flex items-center justify-between">
+          <h1 className="text-4xl font-sans font-bold">
             Building AI Powered Software
           </h1>
           <Button size="pill" className="gap-2 text-lg px-12 py-6 h-auto group">
