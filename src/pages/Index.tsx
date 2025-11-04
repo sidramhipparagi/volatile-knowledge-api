@@ -14,7 +14,7 @@ const Index = () => {
       <section className="min-h-screen pt-32 pb-20 px-6 flex items-center relative">
         <div className="absolute inset-0 flex items-center">
           <div 
-            className="w-[70%] h-[60vh] rounded-3xl"
+            className="w-[70%] h-[75vh] rounded-xl"
             style={{
               backgroundImage: `url(${heroGradient})`,
               backgroundSize: 'cover',
