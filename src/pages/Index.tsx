@@ -11,15 +11,17 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="min-h-screen pt-32 pb-20 px-6 flex items-center relative overflow-hidden">
-        <div 
-          className="absolute inset-0 -left-32"
-          style={{
-            backgroundImage: `url(${heroGradient})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center left',
-          }}
-        />
+      <section className="min-h-screen pt-32 pb-20 px-6 flex items-center relative">
+        <div className="absolute inset-0 flex items-center">
+          <div 
+            className="w-[70%] h-[60vh] rounded-3xl"
+            style={{
+              backgroundImage: `url(${heroGradient})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+          />
+        </div>
         <div className="max-w-7xl mx-auto w-full relative z-10 flex items-center justify-between">
           <h1 className="text-4xl font-sans font-bold">
             Building AI Powered Software
