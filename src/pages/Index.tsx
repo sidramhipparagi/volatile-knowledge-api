@@ -12,7 +12,7 @@ const Index = () => {
       {/* Hero Section */}
       <section className="min-h-screen pt-32 pb-20 px-6 flex items-center justify-center relative">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-6xl font-sans font-bold mb-12">
+          <h1 className="text-4xl font-sans font-bold mb-12">
             Building AI Powered Software
           </h1>
           <Button size="pill" className="gap-2 text-lg px-12 py-6 h-auto group">
