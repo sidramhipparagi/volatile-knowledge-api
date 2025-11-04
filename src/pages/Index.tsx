@@ -23,16 +23,16 @@ const Index = () => {
           />
         </div>
         <div className="max-w-7xl mx-auto w-full relative z-10">
-          <div className="flex items-start justify-between">
-            <div className="w-[70%] flex items-center justify-center ml-32 mt-32">
-              <h1 className="text-4xl font-sans font-bold text-white">
-                Building AI Powered Software
-              </h1>
-            </div>
-            <div className="flex items-center gap-2 font-bold text-black mt-32">
+          <div className="flex items-start justify-end mb-8 mt-32">
+            <div className="flex items-center gap-2 font-bold text-black">
               <span className="text-lg">Create API Key</span>
               <MoveUpRight className="h-7 w-7" strokeWidth={1.5} />
             </div>
+          </div>
+          <div className="w-[70%] flex items-center justify-center ml-32">
+            <h1 className="text-4xl font-sans font-bold text-white">
+              Building AI Powered Software
+            </h1>
           </div>
         </div>
       </section>
