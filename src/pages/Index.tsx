@@ -31,7 +31,7 @@ const Index = () => {
             </div>
             <div className="flex items-center gap-2 font-bold text-black mt-32">
               <span className="text-lg">Create API Key</span>
-              <MoveUpRight className="h-7 w-7" strokeWidth={2.5} />
+              <MoveUpRight className="h-7 w-7" strokeWidth={1.5} />
             </div>
           </div>
         </div>
