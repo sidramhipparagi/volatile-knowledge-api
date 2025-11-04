@@ -23,7 +23,7 @@ const Index = () => {
           />
         </div>
         <div className="max-w-7xl mx-auto w-full relative z-10 flex items-center justify-between">
-          <h1 className="text-4xl font-sans font-bold">
+          <h1 className="text-4xl font-sans font-bold text-white">
             Building AI Powered Software
           </h1>
           <Button size="pill" className="gap-2 text-lg px-12 py-6 h-auto group">
