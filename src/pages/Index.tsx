@@ -12,25 +12,15 @@ const Index = () => {
       
       {/* Hero Section */}
       <section className="min-h-screen pt-32 pb-20 px-6 flex items-center relative">
-        <div className="absolute inset-0 flex items-center">
-          <div 
-            className="w-[70%] h-[75vh] rounded-xl ml-32 mt-32"
-            style={{
-              backgroundImage: `url(${heroGradient})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-          />
-        </div>
-        <div className="max-w-7xl mx-auto w-full relative z-10">
-          <div className="flex items-start justify-end mb-8 mt-32">
-            <div className="flex items-center gap-2 font-bold text-black">
-              <span className="text-lg">Create API</span>
-              <MoveUpRight className="h-7 w-7" strokeWidth={1.5} />
-            </div>
+        <div className="max-w-7xl mx-auto w-full">
+          <div className="flex items-start justify-end mb-8">
+            <Button className="bg-accent text-accent-foreground hover:bg-accent/90 font-bold">
+              Create API
+              <MoveUpRight className="h-5 w-5 ml-2" strokeWidth={1.5} />
+            </Button>
           </div>
-          <div className="w-[70%] flex items-center justify-center ml-32">
-            <h1 className="text-4xl font-sans font-bold text-white">
+          <div className="flex items-center justify-center">
+            <h1 className="text-4xl font-sans font-bold text-center">
               Building AI Powered Software
             </h1>
           </div>
