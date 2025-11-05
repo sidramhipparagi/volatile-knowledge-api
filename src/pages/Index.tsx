@@ -4,8 +4,13 @@ import { Button } from "@/components/ui/button";
 import { MoveUpRight } from "lucide-react";
 import apiFeatureImage from "@/assets/api-feature-illustration.jpg";
 import heroGradient from "@/assets/hero-gradient.png";
+import { useInView } from "@/hooks/use-in-view";
 
 const Index = () => {
+  const imageSection = useInView();
+  const featuresSection = useInView();
+  const ctaSection = useInView();
+
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -31,7 +36,7 @@ const Index = () => {
       </section>
 
       {/* Image and Text Section */}
-      <section className="py-20 px-6">
+      <section ref={imageSection.ref} className={`py-20 px-6 transition-all duration-700 ${imageSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="rounded-full overflow-hidden aspect-video bg-muted h-72">
@@ -55,25 +60,25 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-6">
+      <section ref={featuresSection.ref} className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-sans font-bold text-center mb-16">
+          <h2 className={`text-3xl font-sans font-bold text-center mb-16 transition-all duration-700 ${featuresSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             Everything you need to build
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-6 rounded-lg border border-border bg-card">
+            <div className={`p-6 rounded-lg border border-border bg-card transition-all duration-700 delay-100 ${featuresSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <h3 className="text-xl font-bold mb-3">Fast & Reliable</h3>
               <p className="text-muted-foreground">
                 Get instant responses with 99.9% uptime. Built for production use.
               </p>
             </div>
-            <div className="p-6 rounded-lg border border-border bg-card">
+            <div className={`p-6 rounded-lg border border-border bg-card transition-all duration-700 delay-300 ${featuresSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <h3 className="text-xl font-bold mb-3">Easy Integration</h3>
               <p className="text-muted-foreground">
                 Simple REST API that works with any programming language or framework.
               </p>
             </div>
-            <div className="p-6 rounded-lg border border-border bg-card">
+            <div className={`p-6 rounded-lg border border-border bg-card transition-all duration-700 delay-500 ${featuresSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <h3 className="text-xl font-bold mb-3">AI Powered</h3>
               <p className="text-muted-foreground">
                 Leverage cutting-edge AI technology to power your applications.
@@ -84,7 +89,7 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 px-6">
+      <section ref={ctaSection.ref} className={`py-32 px-6 transition-all duration-700 ${ctaSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-sans font-bold mb-6">
             Ready to start building?
