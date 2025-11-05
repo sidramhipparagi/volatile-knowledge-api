@@ -15,7 +15,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto w-full">
           <div className="flex items-center justify-center mb-8">
             <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold rounded-full px-8">
-              Get started
+              Create API
               <MoveUpRight className="h-5 w-5 ml-2" strokeWidth={1.5} />
             </Button>
           </div>
