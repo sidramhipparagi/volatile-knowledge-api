@@ -16,7 +16,7 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="min-h-screen pt-32 pb-20 px-6 flex items-center relative border-b border-border">
+      <section className="min-h-screen pt-32 pb-20 px-6 flex items-center relative border-b-2 border-black">
         <div className="max-w-7xl mx-auto w-full">
           <div className="flex items-center justify-center mb-8">
             <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold rounded-none px-12 h-14 text-base">
@@ -36,7 +36,7 @@ const Index = () => {
       </section>
 
       {/* Image and Text Section */}
-      <section ref={imageSection.ref} className={`py-20 px-6 transition-all duration-700 border-b border-border ${imageSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <section ref={imageSection.ref} className={`py-20 px-6 transition-all duration-700 border-b-2 border-black ${imageSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="rounded-full overflow-hidden aspect-video bg-muted h-72">
@@ -60,7 +60,7 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section ref={featuresSection.ref} className="py-20 px-6 border-b border-border">
+      <section ref={featuresSection.ref} className="py-20 px-6 border-b-2 border-black">
         <div className="max-w-7xl mx-auto">
           <h2 className={`text-3xl font-sans font-bold text-center mb-16 transition-all duration-700 ${featuresSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             Everything you need to build

@@ -2,7 +2,7 @@ import veLogo from "@/assets/vE_logo.png";
 
 export const Footer = () => {
   return (
-    <footer className="border-t border-border py-12 px-6">
+    <footer className="border-t-2 border-black py-12 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
