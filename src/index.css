@@ -7,25 +7,17 @@ All colors MUST be HSL.
 */
 
 @font-face {
-  font-family: 'NOVA BOLD';
-  src: url('/fonts/NOVABOLD.otf') format('opentype');
-  font-weight: bold;
+  font-family: 'Helvetica Now Display';
+  src: url('/fonts/HelveticaNowDisplay-Regular.ttf') format('truetype');
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'DM Sans';
-  src: url('/fonts/DMSans_18pt-Medium.ttf') format('truetype');
+  font-family: 'Helvetica Now Display';
+  src: url('/fonts/HelveticaNowDisplay-Medium.ttf') format('truetype');
   font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'DM Sans';
-  src: url('/fonts/DMSans_18pt-Bold.ttf') format('truetype');
-  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
@@ -126,15 +118,15 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
-    font-weight: 500;
+    font-family: 'Helvetica Now Display', system-ui, -apple-system, sans-serif;
+    font-weight: 400;
     font-feature-settings: "kern" 1;
     text-rendering: optimizeLegibility;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
-    font-weight: 700;
+    font-family: 'Helvetica Now Display', system-ui, -apple-system, sans-serif;
+    font-weight: 500;
     letter-spacing: -0.02em;
   }
 }

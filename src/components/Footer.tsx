@@ -2,41 +2,58 @@ import veLogo from "@/assets/vE_logo.png";
 
 export const Footer = () => {
   return (
-    <footer className="border-t border-black py-12 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
-          <div>
-            <img src={veLogo} alt="Volatile Engine Logo" className="h-8 w-auto mb-2" />
-            <h3 className="font-nova text-lg tracking-wider mb-4 text-primary">VOLATILE ENGINE</h3>
-            <p className="text-sm text-muted-foreground">
+    <footer className="border-t border-white bg-black relative">
+      <div className="w-full flex relative">
+        <div className="pl-12 pr-32 pt-32 pb-48 relative">
+          <div className="absolute right-0 top-0 bottom-0 border-r border-white"></div>
+          <div className="mb-12">
+            <img src={veLogo} alt="Volatile Engine Logo" className="h-12 w-auto mb-4 brightness-0 invert" />
+            <h3 className="text-2xl tracking-wider mb-6 text-white font-medium" style={{ fontWeight: 500 }}>Volatile Engine</h3>
+            <p className="text-sm text-white">
               Web knowledge API for developers
             </p>
           </div>
-          <div>
-            <h4 className="font-medium mb-4">Product</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors">Pricing</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Documentation</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">API Reference</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-medium mb-4">Company</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors">About</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Contact</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-medium mb-4">Legal</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors">Privacy</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Terms</a></li>
-            </ul>
-          </div>
         </div>
-        <div className="pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          © 2025 Volatile Engine. All rights reserved.
+        <div className="flex-1 pl-8 pr-12 flex flex-col pt-32 pb-48 relative">
+          <div className="mx-auto" style={{ width: 'fit-content' }}>
+            <div className="grid md:grid-cols-4 gap-20 mb-16">
+              <div>
+                <h4 className="font-normal mb-6 text-white">PRODUCT</h4>
+                <ul className="space-y-3 text-sm text-white">
+                  <li><a href="#" className="hover:text-white transition-colors">Pricing</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">API Reference</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-normal mb-6 text-white">COMPANY</h4>
+                <ul className="space-y-3 text-sm text-white">
+                  <li><a href="#" className="hover:text-white transition-colors">About</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-normal mb-6 text-white">LEGAL</h4>
+                <ul className="space-y-3 text-sm text-white">
+                  <li><a href="#" className="hover:text-white transition-colors">Privacy</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Terms</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-normal mb-6 text-white">CONTACT US</h4>
+                <ul className="space-y-3 text-sm text-white">
+                  <li><a href="#" className="hover:text-white transition-colors">Email</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Support</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Sales</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="absolute bottom-0 right-0 pt-12 pb-12 border-t border-white" style={{ left: 0 }}>
+            <div className="text-center text-sm text-white">
+              © 2025 Volatile Engine. All rights reserved.
+            </div>
+          </div>
         </div>
       </div>
     </footer>
