@@ -1,9 +1,12 @@
+import veLogo from "@/assets/vE_logo.png";
+
 export const Footer = () => {
   return (
     <footer className="border-t border-border py-12 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
+            <img src={veLogo} alt="Volatile Engine Logo" className="h-8 w-auto mb-2" />
             <h3 className="font-nova text-lg tracking-wider mb-4 text-primary">VOLATILE ENGINE</h3>
             <p className="text-sm text-muted-foreground">
               Web knowledge API for developers
