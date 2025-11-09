@@ -4,7 +4,7 @@ export const Footer = () => {
   return (
     <footer className="border-t border-white bg-black relative">
       <div className="w-full flex relative">
-        <div className="pl-12 pr-32 pt-32 pb-48 relative">
+        <div className="pl-12 pr-32 pt-48 pb-64 relative">
           <div className="absolute right-0 top-0 bottom-0 border-r border-white"></div>
           <div className="mb-12">
             <img src={veLogo} alt="Volatile Engine Logo" className="h-12 w-auto mb-4 brightness-0 invert" />
@@ -14,7 +14,7 @@ export const Footer = () => {
             </p>
           </div>
         </div>
-        <div className="flex-1 pl-8 pr-12 flex flex-col pt-32 pb-48 relative">
+        <div className="flex-1 pl-8 pr-12 flex flex-col pt-48 pb-48 relative">
           <div className="mx-auto" style={{ width: 'fit-content' }}>
             <div className="grid md:grid-cols-4 gap-20 mb-16">
               <div>
