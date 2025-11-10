@@ -6,7 +6,9 @@ import apiFeatureImage from "@/assets/api-feature-illustration.jpg";
 import heroGradient from "@/assets/hero-gradient.png";
 import heroVideo from "@/assets/hero.mp4";
 import { useInView } from "@/hooks/use-in-view";
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { getAllBlogPosts } from "@/data/blogs";
 
 const Index = () => {
   const imageSection = useInView();
@@ -15,6 +17,17 @@ const Index = () => {
   const featuresSection3 = useInView();
   const ctaSection = useInView();
   const blogSection = useInView();
+
+  const location = useLocation();
+
+  // Get all blog posts
+  const blogs = getAllBlogPosts();
+
+  useEffect(() => {
+    if (location.hash === "#blog") {
+      blogSection.ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [location.hash]);
 
   return (
     <div className="min-h-screen">
@@ -33,10 +46,12 @@ const Index = () => {
         </video>
         <div className="max-w-7xl mx-auto w-full relative z-10">
           <div className="flex items-center justify-start mb-8">
-            <Button size="lg" className="font-bold rounded-none px-12 h-20 text-base gap-2 group" style={{ backgroundColor: '#f3f2ec', color: '#000000' }} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f3f2ec'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#f3f2ec'}>
-              Create API
-              <MoveUpRight className="h-6 w-6 transition-transform duration-300 group-hover:rotate-[45deg]" strokeWidth={2.5} stroke="#000000" />
-            </Button>
+            <Link to="/get-started">
+              <Button size="lg" className="font-bold rounded-none px-12 h-20 text-base gap-2 group" style={{ backgroundColor: '#f3f2ec', color: '#000000' }} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f3f2ec'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#f3f2ec'}>
+                Create API
+                <MoveUpRight className="h-6 w-6 transition-transform duration-300 group-hover:rotate-[45deg]" strokeWidth={2.5} stroke="#000000" />
+              </Button>
+            </Link>
           </div>
           <div className="flex flex-col items-start justify-start text-left max-w-4xl">
             <h1 className="text-5xl md:text-6xl mb-6 text-white font-medium">
@@ -140,10 +155,12 @@ const Index = () => {
           <p className="text-xl text-black mb-8">
             Join developers who are already building amazing things
           </p>
-          <Button size="lg" className="bg-black text-white hover:bg-black/90 font-normal rounded-none px-12 h-14 text-base gap-2 group">
-            Get started
-            <MoveUpRight className="h-6 w-6 transition-transform duration-300 group-hover:rotate-[45deg]" strokeWidth={2.5} stroke="#ffffff" />
-          </Button>
+          <Link to="/get-started">
+            <Button size="lg" className="bg-black text-white hover:bg-black/90 font-normal rounded-none px-12 h-14 text-base gap-2 group">
+              Get started
+              <MoveUpRight className="h-6 w-6 transition-transform duration-300 group-hover:rotate-[45deg]" strokeWidth={2.5} stroke="#ffffff" />
+            </Button>
+          </Link>
         </div>
       </section>
 
@@ -230,71 +247,39 @@ const Index = () => {
       </section>
 
       {/* Blog Section */}
-      <section ref={blogSection.ref} className="py-40 px-6">
+      <section id="blog" ref={blogSection.ref} className="py-40 px-6">
         <div className="max-w-7xl mx-auto">
           <h2 className={`text-3xl font-medium text-center mb-12 text-black transition-all duration-700 ${blogSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             Latest from our blog
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <Link 
-              to="/blog/ai-integration-guide"
-              className={`group transition-all duration-700 delay-100 ${blogSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-            >
-              <div className="aspect-video overflow-hidden bg-muted mb-4">
-                <img 
-                  src={apiFeatureImage} 
-                  alt="AI Integration Guide"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <h3 className="text-xl font-medium mb-2 text-black group-hover:underline">
-                Complete Guide to AI API Integration
-              </h3>
-              <p className="text-black mb-3">
-                Learn how to integrate AI capabilities into your applications with our comprehensive guide.
-              </p>
-              <span className="text-black text-sm">March 15, 2024</span>
-            </Link>
-
-            <Link 
-              to="/blog/building-scalable-apis"
-              className={`group transition-all duration-700 delay-300 ${blogSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-            >
-              <div className="aspect-video overflow-hidden bg-muted mb-4">
-                <img 
-                  src={apiFeatureImage} 
-                  alt="Building Scalable APIs"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <h3 className="text-xl font-medium mb-2 text-black group-hover:underline">
-                Building Scalable APIs: Best Practices
-              </h3>
-              <p className="text-black mb-3">
-                Discover essential practices for building APIs that can handle millions of requests.
-              </p>
-              <span className="text-black text-sm">March 10, 2024</span>
-            </Link>
-
-            <Link 
-              to="/blog/api-security-essentials"
-              className={`group transition-all duration-700 delay-500 ${blogSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-            >
-              <div className="aspect-video overflow-hidden bg-muted mb-4">
-                <img 
-                  src={apiFeatureImage} 
-                  alt="API Security Essentials"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <h3 className="text-xl font-medium mb-2 text-black group-hover:underline">
-                API Security Essentials for 2024
-              </h3>
-              <p className="text-black mb-3">
-                Security best practices every API developer needs to implement this year.
-              </p>
-              <span className="text-black text-sm">March 5, 2024</span>
-            </Link>
+            {blogs.map((blog, index) => {
+              const delays = ['delay-100', 'delay-300', 'delay-500'];
+              const delay = delays[index % delays.length];
+              
+              return (
+                <Link 
+                  key={blog.slug}
+                  to={`/blog/${blog.slug}`}
+                  className={`group transition-all duration-700 ${delay} ${blogSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                >
+                  <div className="aspect-video overflow-hidden bg-muted mb-4">
+                    <img 
+                      src={blog.image} 
+                      alt={blog.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <h3 className="text-xl font-medium mb-2 text-black group-hover:underline">
+                    {blog.title}
+                  </h3>
+                  <p className="text-black mb-3">
+                    {blog.excerpt}
+                  </p>
+                  <span className="text-black text-sm">{blog.date}</span>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
