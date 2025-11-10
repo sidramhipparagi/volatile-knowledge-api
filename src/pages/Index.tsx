@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { MoveUpRight } from "lucide-react";
 import apiFeatureImage from "@/assets/run.png";
+import logoWhite from "@/assets/logo_white.png";
 import heroGradient from "@/assets/hero-gradient.png";
 import heroVideo from "@/assets/hero.mp4";
 import { useInView } from "@/hooks/use-in-view";
@@ -105,7 +106,13 @@ const Index = () => {
       <section ref={imageSection.ref} className={`px-6 transition-all duration-700 border-b border-white bg-black ${imageSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-7xl mx-auto py-36">
           <div className="grid md:grid-cols-2 gap-32 items-center">
-            <div className="overflow-hidden bg-muted flex justify-center">
+            <div className="relative overflow-hidden bg-muted flex justify-center">
+              <img
+                src={logoWhite}
+                alt="Volatile Engine logo"
+                className="absolute bottom-16 right-6 h-20 w-64 object-contain pointer-events-none select-none"
+                aria-hidden
+              />
               <img
                 src={apiFeatureImage}
                 alt="AI-powered API platform with digital network visualization"
@@ -114,11 +121,11 @@ const Index = () => {
             </div>
             <div className="flex h-[720px] flex-col justify-center">
               <h2 className="text-4xl font-medium mb-6 text-white">
-                Be Volatile while you build              
+                Powerful API for Modern Developers
               </h2>
               <p className="text-lg text-white">
                 Access crisp knowledge from the web through our powerful API. 
-                Built for app developers who need reliable, real-time changing web data.
+                Built for app developers who need reliable, real-time web data.
               </p>
             </div>
           </div>
