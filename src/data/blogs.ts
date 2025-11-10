@@ -7,12 +7,15 @@ export interface BlogPost {
   content: string;
 }
 
+const createBlogImageUrl = (fileName: string) =>
+  new URL(`../assets/${fileName}`, import.meta.url).href;
+
 export const blogPosts: Record<string, BlogPost> = {
   "ai-integration-guide": {
     slug: "ai-integration-guide",
     title: "Complete Guide to AI API Integration",
     date: "March 15, 2024",
-    image: "/src/assets/img1.jpg",
+    image: createBlogImageUrl("img1.jpg"),
     excerpt: "Learn how to integrate AI capabilities into your applications with our comprehensive guide.",
     content: `
       <p class="mb-6">Integrating AI capabilities into your applications has never been easier. In this comprehensive guide, we'll walk you through everything you need to know about implementing AI-powered features using modern APIs.</p>
@@ -34,7 +37,7 @@ export const blogPosts: Record<string, BlogPost> = {
     slug: "building-scalable-apis",
     title: "Building Scalable APIs: Best Practices",
     date: "March 10, 2024",
-    image: "/src/assets/img2.jpg",
+    image: createBlogImageUrl("img2.jpg"),
     excerpt: "Discover essential practices for building APIs that can handle millions of requests.",
     content: `
       <p class="mb-6">Scalability is crucial for modern applications. This guide covers essential practices for building APIs that can handle millions of requests without breaking a sweat.</p>
@@ -56,7 +59,7 @@ export const blogPosts: Record<string, BlogPost> = {
     slug: "api-security-essentials",
     title: "API Security Essentials for 2024",
     date: "March 5, 2024",
-    image: "/src/assets/img3.jpg",
+    image: createBlogImageUrl("img3.jpg"),
     excerpt: "Security best practices every API developer needs to implement this year.",
     content: `
       <p class="mb-6">Security should never be an afterthought. This guide covers the essential security practices every API developer needs to implement in 2024.</p>
