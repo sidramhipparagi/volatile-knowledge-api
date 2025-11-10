@@ -146,7 +146,7 @@ const Index = () => {
       </section>
 
       {/* Features Section 3 */}
-      <section ref={featuresSection3.ref} className="py-40 px-6">
+      <section ref={featuresSection3.ref} className="py-40 px-6 border-b border-black">
         <div className="max-w-7xl mx-auto">
           <h2 className={`text-3xl font-medium text-center mb-20 text-black transition-all duration-700 ${featuresSection3.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             Everything you need to build
@@ -173,6 +173,60 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Video Section */}
+      <section className="py-40 px-6 border-b border-black bg-black">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-medium text-center mb-12 text-white">
+            See It In Action
+          </h2>
+          <div className="aspect-video bg-muted overflow-hidden">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            >
+              <source src={heroVideo} type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-40 px-6 border-b border-black">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-12 text-center">
+            <div>
+              <div className="text-5xl font-medium mb-3 text-black">99.9%</div>
+              <p className="text-xl text-black">Uptime Guarantee</p>
+            </div>
+            <div>
+              <div className="text-5xl font-medium mb-3 text-black">10M+</div>
+              <p className="text-xl text-black">API Calls Daily</p>
+            </div>
+            <div>
+              <div className="text-5xl font-medium mb-3 text-black">50ms</div>
+              <p className="text-xl text-black">Average Response Time</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonial Section */}
+      <section className="py-40 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <blockquote className="text-2xl font-medium mb-6 text-black">
+            "Volatile Engine's API transformed how we build AI features. The integration was seamless and the performance is outstanding."
+          </blockquote>
+          <div className="text-black">
+            <p className="font-medium">Sarah Chen</p>
+            <p>CTO, TechCorp</p>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );

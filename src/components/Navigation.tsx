@@ -2,12 +2,14 @@ import { Button } from "@/components/ui/button";
 import { MoveUpRight, Plus, Minus } from "lucide-react";
 import veLogo from "@/assets/vE_logo.png";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-const NavButton = ({ label }: { label: string }) => {
+const NavButton = ({ label, to }: { label: string; to: string }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <button
+    <Link
+      to={to}
       className="flex items-center gap-2 px-4 py-2 text-base text-black font-normal transition-all"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -18,7 +20,7 @@ const NavButton = ({ label }: { label: string }) => {
       ) : (
         <Plus className="h-4 w-4" strokeWidth={2} />
       )}
-    </button>
+    </Link>
   );
 };
 
@@ -79,15 +81,17 @@ export const Navigation = () => {
           <img src={veLogo} alt="Volatile Engine Logo" className="h-12 w-auto" />
         </div>
         <div className="max-w-7xl mx-auto px-6 flex-1 flex items-center justify-center gap-8">
-          <NavButton label="Pricing" />
-          <NavButton label="Doc" />
-          <NavButton label="Contact" />
+          <NavButton label="Pricing" to="/pricing" />
+          <NavButton label="Doc" to="/doc" />
+          <NavButton label="Contact" to="/" />
         </div>
         <div className="flex items-center h-full">
-          <Button size="pill" className="gap-2 group rounded-none h-full px-12 bg-black text-white hover:bg-black/90 w-[180px]">
-            <MoveUpRight className="h-6 w-6 transition-transform duration-300 group-hover:rotate-[45deg]" strokeWidth={2.5} />
-            Get Started
-          </Button>
+          <Link to="/get-started">
+            <Button size="pill" className="gap-2 group rounded-none h-full px-12 bg-black text-white hover:bg-black/90 w-[180px]">
+              <MoveUpRight className="h-6 w-6 transition-transform duration-300 group-hover:rotate-[45deg]" strokeWidth={2.5} />
+              Get Started
+            </Button>
+          </Link>
         </div>
       </div>
     </nav>
