@@ -2,12 +2,12 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { MoveUpRight } from "lucide-react";
-import apiFeatureImage from "@/assets/api-feature-illustration.jpg";
+import apiFeatureImage from "@/assets/run.png";
 import heroGradient from "@/assets/hero-gradient.png";
 import heroVideo from "@/assets/hero.mp4";
 import { useInView } from "@/hooks/use-in-view";
-import { useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { getAllBlogPosts } from "@/data/blogs";
 
 const Index = () => {
@@ -19,15 +19,23 @@ const Index = () => {
   const blogSection = useInView();
 
   const location = useLocation();
+  const navigate = useNavigate();
+  const hasScrolledRef = useRef(false);
 
   // Get all blog posts
   const blogs = getAllBlogPosts();
 
   useEffect(() => {
-    if (location.hash === "#blog") {
+    if (location.hash === "#blog" && !hasScrolledRef.current) {
+      hasScrolledRef.current = true;
       blogSection.ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      
+      // Remove the hash from URL after scrolling
+      setTimeout(() => {
+        navigate("/", { replace: true });
+      }, 1000);
     }
-  }, [location.hash]);
+  }, [location.hash, navigate]);
 
   return (
     <div className="min-h-screen">
@@ -94,23 +102,23 @@ const Index = () => {
       </section>
 
       {/* Image and Text Section */}
-      <section ref={imageSection.ref} className={`py-44 px-6 transition-all duration-700 border-b border-white bg-black ${imageSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        <div className="max-w-7xl mx-auto">
+      <section ref={imageSection.ref} className={`px-6 transition-all duration-700 border-b border-white bg-black ${imageSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className="max-w-7xl mx-auto py-36">
           <div className="grid md:grid-cols-2 gap-32 items-center">
-            <div className="overflow-hidden aspect-video bg-muted h-96">
-              <img 
-                src={apiFeatureImage} 
-                alt="AI-powered API platform with digital network visualization" 
-                className="w-full h-full object-cover"
+            <div className="overflow-hidden bg-muted flex justify-center">
+              <img
+                src={apiFeatureImage}
+                alt="AI-powered API platform with digital network visualization"
+                className="h-[720px] w-auto object-cover"
               />
             </div>
-            <div>
+            <div className="flex h-[720px] flex-col justify-center">
               <h2 className="text-4xl font-medium mb-6 text-white">
-                Powerful API for Modern Developers
+                Be Volatile while you build              
               </h2>
               <p className="text-lg text-white">
                 Access crisp knowledge from the web through our powerful API. 
-                Built for app developers who need reliable, real-time web data.
+                Built for app developers who need reliable, real-time changing web data.
               </p>
             </div>
           </div>
