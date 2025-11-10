@@ -9,7 +9,9 @@ import { useInView } from "@/hooks/use-in-view";
 
 const Index = () => {
   const imageSection = useInView();
-  const featuresSection = useInView();
+  const featuresSection1 = useInView();
+  const featuresSection2 = useInView();
+  const featuresSection3 = useInView();
   const ctaSection = useInView();
 
   return (
@@ -46,25 +48,25 @@ const Index = () => {
       </section>
 
       {/* Features Section 1 */}
-      <section ref={featuresSection.ref} className="py-60 px-6 border-b border-black">
+      <section ref={featuresSection1.ref} className="py-60 px-6 border-b border-black">
         <div className="max-w-7xl mx-auto">
-          <h2 className={`text-3xl font-medium text-center mb-20 text-black transition-all duration-700 ${featuresSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 className={`text-3xl font-medium text-center mb-20 text-black transition-all duration-700 ${featuresSection1.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             Everything you need to build
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className={`p-6 transition-all duration-700 delay-100 ${featuresSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className={`p-6 transition-all duration-700 delay-100 ${featuresSection1.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <h3 className="text-xl font-medium mb-3 text-black">Fast & Reliable</h3>
               <p className="text-black">
                 Get instant responses with 99.9% uptime. Built for production use.
               </p>
             </div>
-            <div className={`p-6 transition-all duration-700 delay-300 ${featuresSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className={`p-6 transition-all duration-700 delay-300 ${featuresSection1.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <h3 className="text-xl font-medium mb-3 text-black">Easy Integration</h3>
               <p className="text-black">
                 Simple REST API that works with any programming language or framework.
               </p>
             </div>
-            <div className={`p-6 transition-all duration-700 delay-500 ${featuresSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className={`p-6 transition-all duration-700 delay-500 ${featuresSection1.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <h3 className="text-xl font-medium mb-3 text-black">AI Powered</h3>
               <p className="text-black">
                 Leverage cutting-edge AI technology to power your applications.
@@ -99,25 +101,25 @@ const Index = () => {
       </section>
 
       {/* Features Section 2*/}
-      <section ref={featuresSection.ref} className="py-40 px-6 border-b border-black">
+      <section ref={featuresSection2.ref} className="py-40 px-6 border-b border-black">
         <div className="max-w-7xl mx-auto">
-          <h2 className={`text-3xl font-medium text-center mb-20 text-black transition-all duration-700 ${featuresSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 className={`text-3xl font-medium text-center mb-20 text-black transition-all duration-700 ${featuresSection2.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             Everything you need to build
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className={`p-6 transition-all duration-700 delay-100 ${featuresSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className={`p-6 transition-all duration-700 delay-100 ${featuresSection2.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <h3 className="text-xl font-medium mb-3 text-black">Fast & Reliable</h3>
               <p className="text-black">
                 Get instant responses with 99.9% uptime. Built for production use.
               </p>
             </div>
-            <div className={`p-6 transition-all duration-700 delay-300 ${featuresSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className={`p-6 transition-all duration-700 delay-300 ${featuresSection2.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <h3 className="text-xl font-medium mb-3 text-black">Easy Integration</h3>
               <p className="text-black">
                 Simple REST API that works with any programming language or framework.
               </p>
             </div>
-            <div className={`p-6 transition-all duration-700 delay-500 ${featuresSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className={`p-6 transition-all duration-700 delay-500 ${featuresSection2.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <h3 className="text-xl font-medium mb-3 text-black">AI Powered</h3>
               <p className="text-black">
                 Leverage cutting-edge AI technology to power your applications.
@@ -144,25 +146,25 @@ const Index = () => {
       </section>
 
       {/* Features Section 3 */}
-      <section ref={featuresSection.ref} className="py-40 px-6">
+      <section ref={featuresSection3.ref} className="py-40 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className={`text-3xl font-medium text-center mb-20 text-black transition-all duration-700 ${featuresSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 className={`text-3xl font-medium text-center mb-20 text-black transition-all duration-700 ${featuresSection3.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             Everything you need to build
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className={`p-6 transition-all duration-700 delay-100 ${featuresSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className={`p-6 transition-all duration-700 delay-100 ${featuresSection3.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <h3 className="text-xl font-medium mb-3 text-black">Fast & Reliable</h3>
               <p className="text-black">
                 Get instant responses with 99.9% uptime. Built for production use.
               </p>
             </div>
-            <div className={`p-6 transition-all duration-700 delay-300 ${featuresSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className={`p-6 transition-all duration-700 delay-300 ${featuresSection3.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <h3 className="text-xl font-medium mb-3 text-black">Easy Integration</h3>
               <p className="text-black">
                 Simple REST API that works with any programming language or framework.
               </p>
             </div>
-            <div className={`p-6 transition-all duration-700 delay-500 ${featuresSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className={`p-6 transition-all duration-700 delay-500 ${featuresSection3.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <h3 className="text-xl font-medium mb-3 text-black">AI Powered</h3>
               <p className="text-black">
                 Leverage cutting-edge AI technology to power your applications.
