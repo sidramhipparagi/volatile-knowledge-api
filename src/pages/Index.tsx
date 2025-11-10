@@ -6,6 +6,7 @@ import apiFeatureImage from "@/assets/api-feature-illustration.jpg";
 import heroGradient from "@/assets/hero-gradient.png";
 import heroVideo from "@/assets/hero.mp4";
 import { useInView } from "@/hooks/use-in-view";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   const imageSection = useInView();
@@ -13,6 +14,7 @@ const Index = () => {
   const featuresSection2 = useInView();
   const featuresSection3 = useInView();
   const ctaSection = useInView();
+  const blogSection = useInView();
 
   return (
     <div className="min-h-screen">
@@ -215,7 +217,7 @@ const Index = () => {
       </section>
 
       {/* Testimonial Section */}
-      <section className="py-40 px-6">
+      <section className="py-40 px-6 border-b border-black">
         <div className="max-w-4xl mx-auto text-center">
           <blockquote className="text-2xl font-medium mb-6 text-black">
             "Volatile Engine's API transformed how we build AI features. The integration was seamless and the performance is outstanding."
@@ -223,6 +225,76 @@ const Index = () => {
           <div className="text-black">
             <p className="font-medium">Sarah Chen</p>
             <p>CTO, TechCorp</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Blog Section */}
+      <section ref={blogSection.ref} className="py-40 px-6">
+        <div className="max-w-7xl mx-auto">
+          <h2 className={`text-3xl font-medium text-center mb-12 text-black transition-all duration-700 ${blogSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            Latest from our blog
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Link 
+              to="/blog/ai-integration-guide"
+              className={`group transition-all duration-700 delay-100 ${blogSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+            >
+              <div className="aspect-video overflow-hidden bg-muted mb-4">
+                <img 
+                  src={apiFeatureImage} 
+                  alt="AI Integration Guide"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <h3 className="text-xl font-medium mb-2 text-black group-hover:underline">
+                Complete Guide to AI API Integration
+              </h3>
+              <p className="text-black mb-3">
+                Learn how to integrate AI capabilities into your applications with our comprehensive guide.
+              </p>
+              <span className="text-black text-sm">March 15, 2024</span>
+            </Link>
+
+            <Link 
+              to="/blog/building-scalable-apis"
+              className={`group transition-all duration-700 delay-300 ${blogSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+            >
+              <div className="aspect-video overflow-hidden bg-muted mb-4">
+                <img 
+                  src={apiFeatureImage} 
+                  alt="Building Scalable APIs"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <h3 className="text-xl font-medium mb-2 text-black group-hover:underline">
+                Building Scalable APIs: Best Practices
+              </h3>
+              <p className="text-black mb-3">
+                Discover essential practices for building APIs that can handle millions of requests.
+              </p>
+              <span className="text-black text-sm">March 10, 2024</span>
+            </Link>
+
+            <Link 
+              to="/blog/api-security-essentials"
+              className={`group transition-all duration-700 delay-500 ${blogSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+            >
+              <div className="aspect-video overflow-hidden bg-muted mb-4">
+                <img 
+                  src={apiFeatureImage} 
+                  alt="API Security Essentials"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <h3 className="text-xl font-medium mb-2 text-black group-hover:underline">
+                API Security Essentials for 2024
+              </h3>
+              <p className="text-black mb-3">
+                Security best practices every API developer needs to implement this year.
+              </p>
+              <span className="text-black text-sm">March 5, 2024</span>
+            </Link>
           </div>
         </div>
       </section>
