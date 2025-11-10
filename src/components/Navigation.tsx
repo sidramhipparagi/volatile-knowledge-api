@@ -77,17 +77,19 @@ export const Navigation = () => {
       }`}
     >
       <div className="w-full h-[79px] flex items-center">
-        <div className="flex items-center justify-start h-full pl-12 pr-12 border-r border-black w-[180px]">
-          <img src={veLogo} alt="Volatile Engine Logo" className="h-12 w-auto" />
+        <div className="flex items-center justify-start h-full pl-12 pr-12 border-r border-black min-w-[180px]">
+          <Link to="/">
+            <img src={veLogo} alt="Volatile Engine Logo - Home" className="h-12 w-auto cursor-pointer hover:opacity-80 transition-opacity" />
+          </Link>
         </div>
         <div className="max-w-7xl mx-auto px-6 flex-1 flex items-center justify-center gap-8">
           <NavButton label="Pricing" to="/pricing" />
           <NavButton label="Doc" to="/doc" />
           <NavButton label="Contact" to="/" />
         </div>
-        <div className="flex items-center h-full">
-          <Link to="/get-started">
-            <Button size="pill" className="gap-2 group rounded-none h-full px-12 bg-black text-white hover:bg-black/90 w-[180px]">
+        <div className="flex items-center h-full border-l border-black">
+          <Link to="/get-started" className="h-full">
+            <Button size="pill" className="gap-2 group rounded-none h-full px-8 bg-black text-white hover:bg-black/90 whitespace-nowrap">
               <MoveUpRight className="h-6 w-6 transition-transform duration-300 group-hover:rotate-[45deg]" strokeWidth={2.5} />
               Get Started
             </Button>
