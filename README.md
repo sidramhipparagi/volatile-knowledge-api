@@ -62,7 +62,31 @@ This project is built with:
 
 ## How can I deploy this project?
 
+### Option 1: Deploy with Lovable
 Simply open [Lovable](https://lovable.dev/projects/7b910451-b63e-4e91-a79e-537560836e40) and click on Share -> Publish.
+
+### Option 2: Deploy to GitHub Pages
+
+This project is configured to automatically deploy to GitHub Pages. Follow these steps:
+
+1. **Configure GitHub Pages Settings:**
+   - Go to your repository on GitHub
+   - Navigate to **Settings** → **Pages**
+   - Under **Source**, select **GitHub Actions**
+
+2. **Push your changes:**
+   ```sh
+   git add .
+   git commit -m "Configure GitHub Pages deployment"
+   git push
+   ```
+
+3. **Wait for deployment:**
+   - The GitHub Actions workflow will automatically build and deploy your site
+   - Check the **Actions** tab in your repository to monitor the deployment
+   - Once complete, your site will be live at: `https://[your-username].github.io/volatile-knowledge-api/`
+
+**Note:** The first deployment may take a few minutes. Subsequent deployments will be triggered automatically whenever you push to the main branch.
 
 ## Can I connect a custom domain to my Lovable project?
 
