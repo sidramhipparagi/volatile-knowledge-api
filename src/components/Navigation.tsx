@@ -85,7 +85,7 @@ export const Navigation = () => {
         <div className="max-w-7xl mx-auto px-6 flex-1 flex items-center justify-center gap-8">
           <NavButton label="Pricing" to="/pricing" />
           <NavButton label="Doc" to="/doc" />
-          <NavButton label="Newsroom +" to="/newsroom" />
+          <NavButton label="Newsroom" to="/newsroom" />
           <NavButton label="Contact" to="/" />
         </div>
         <div className="flex items-center h-full border-l border-black">
