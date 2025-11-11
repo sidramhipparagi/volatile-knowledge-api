@@ -124,7 +124,7 @@ export const Navigation = () => {
         } ${hoveredContent ? "bg-black border-b border-white" : "bg-background border-b border-black"}`}
       >
         <div className="w-full h-[79px] flex items-center">
-          <div className={`flex items-center justify-start h-full pl-12 pr-12 min-w-[180px] ${
+          <div className={`flex items-center justify-start h-full pl-16 pr-12 min-w-[180px] ${
             hoveredContent ? "border-r border-white" : "border-r border-black"
           }`}>
             <Link to="/">

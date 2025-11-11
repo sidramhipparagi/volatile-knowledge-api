@@ -22,6 +22,14 @@ All colors MUST be HSL.
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Helvetica Now Display';
+  src: url('/fonts/HelveticaNowDisplay-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 @layer base {
   :root {

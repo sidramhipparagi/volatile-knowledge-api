@@ -5,10 +5,10 @@ export const Footer = () => {
   return (
     <footer className="border-t border-white bg-black relative">
       <div className="w-full flex relative">
-        <div className="pl-12 pr-32 pt-32 pb-64 relative">
+        <div className="pl-16 pr-32 pt-32 pb-64 relative">
           <div className="mb-12">
             <img src={veLogo} alt="Volatile Engine Logo" className="h-12 w-auto mb-4 brightness-0 invert" />
-            <h3 className="text-2xl tracking-wider mb-6 text-white font-medium" style={{ fontWeight: 500 }}>VOLATILE ENGINE</h3>
+            <h3 className="text-xl tracking-wider mb-6 text-white font-medium" style={{ fontWeight: 500 }}>VOLATILE ENGINE</h3>
           </div>
         </div>
         <div className="flex-1 pl-8 pr-4 flex flex-col pt-48 pb-48 relative">

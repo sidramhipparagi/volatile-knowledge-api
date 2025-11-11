@@ -1,13 +1,14 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { MoveUpRight } from "lucide-react";
+import { MoveUpRight, ArrowUp } from "lucide-react";
 import apiFeatureImage from "@/assets/run.png";
 import logoWhite from "@/assets/logo_white.png";
 import heroGradient from "@/assets/hero-gradient.png";
 import heroVideo from "@/assets/hero.mp4";
+import demoVideo from "@/assets/demo.mp4";
 import { useInView } from "@/hooks/use-in-view";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { getAllBlogPosts } from "@/data/blogs";
 
@@ -22,9 +23,16 @@ const Index = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const hasScrolledRef = useRef(false);
+  const heroSectionRef = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   // Get top 3 blog posts
   const blogs = getAllBlogPosts().slice(0, 3);
+
+  const scrollToTop = () => {
+    heroSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   useEffect(() => {
     if (location.hash === "#blog" && !hasScrolledRef.current) {
@@ -38,12 +46,48 @@ const Index = () => {
     }
   }, [location.hash, navigate]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const hero = heroSectionRef.current;
+      if (!hero) {
+        setShowScrollTop(false);
+        return;
+      }
+
+      const rect = hero.getBoundingClientRect();
+      const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+      setShowScrollTop(!isInView);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Autoplay was prevented, video will need user interaction
+          console.log("Video autoplay was prevented");
+        });
+      }
+    }
+  }, []);
+
   return (
     <div className="min-h-screen">
       <Navigation />
       
       {/* Hero Section */}
-      <section className="min-h-screen pt-32 pb-20 px-6 flex items-center relative border-b border-black overflow-hidden">
+      <section ref={heroSectionRef} className="min-h-screen pt-32 pb-20 px-6 flex items-center relative border-b border-black overflow-hidden">
         <video
           autoPlay
           loop
@@ -74,29 +118,28 @@ const Index = () => {
       </section>
 
       {/* Features Section 1 */}
-      <section ref={featuresSection1.ref} className="py-60 px-6 border-b border-black">
+      <section ref={featuresSection1.ref} className="pt-32 pb-60 px-6 border-b border-black">
         <div className="max-w-7xl mx-auto">
-          <h2 className={`text-3xl font-medium text-center mb-20 text-black transition-all duration-700 ${featuresSection1.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Everything you need to build
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className={`p-6 transition-all duration-700 delay-100 ${featuresSection1.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <h3 className="text-xl font-medium mb-3 text-black">Fast & Reliable</h3>
-              <p className="text-black">
-                Get instant responses with 99.9% uptime. Built for production use.
-              </p>
+          <div className={`grid md:grid-cols-2 gap-16 items-start transition-all duration-700 ${featuresSection1.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            {/* Left Side */}
+            <div>
+              <h2 className="text-3xl mb-6 text-black" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 500 }}>
+                Our Mission
+              </h2>
+              <h3 className="text-4xl md:text-5xl text-black" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 700 }}>
+                Best web knowledge for all AI powered apps
+              </h3>
             </div>
-            <div className={`p-6 transition-all duration-700 delay-300 ${featuresSection1.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <h3 className="text-xl font-medium mb-3 text-black">Easy Integration</h3>
-              <p className="text-black">
-                Simple REST API that works with any programming language or framework.
+            
+            {/* Right Side */}
+            <div>
+              <p className="text-lg text-black mb-6 leading-relaxed">
+                We are building a reliable web knowledge API that developers love. Our focus is simple: performance, clarity, and developer experience. We provide access to crisp knowledge from the web through our powerful API, built for app developers who need reliable, real-time web data. Our platform enables AI-powered applications to access the most up-to-date information from across the web, ensuring your applications stay current and accurate.
               </p>
-            </div>
-            <div className={`p-6 transition-all duration-700 delay-500 ${featuresSection1.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <h3 className="text-xl font-medium mb-3 text-black">AI Powered</h3>
-              <p className="text-black">
-                Leverage cutting-edge AI technology to power your applications.
-              </p>
+              <Link to="/about" className="text-xl text-black underline inline-flex items-center gap-2 group mt-8" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 500 }}>
+                <span>Learn more</span>
+                <MoveUpRight className="h-6 w-6 transition-transform duration-300 group-hover:rotate-[45deg]" strokeWidth={2.5} />
+              </Link>
             </div>
           </div>
         </div>
@@ -121,11 +164,11 @@ const Index = () => {
             </div>
             <div className="flex h-[720px] flex-col justify-center">
               <h2 className="text-4xl font-medium mb-6 text-white">
-                Powerful API for Modern Developers
+                Be Volatile While You Build
               </h2>
               <p className="text-lg text-white">
                 Access crisp knowledge from the web through our powerful API. 
-                Built for app developers who need reliable, real-time web data.
+                Built for app developers who need reliable, ever changing real-time web data.
               </p>
             </div>
           </div>
@@ -216,13 +259,20 @@ const Index = () => {
           </h2>
           <div className="aspect-video bg-muted overflow-hidden">
             <video
+              ref={videoRef}
               autoPlay
               loop
               muted
               playsInline
               className="w-full h-full object-cover"
+              onLoadedData={(e) => {
+                const video = e.currentTarget;
+                video.play().catch(() => {
+                  console.log("Video play failed");
+                });
+              }}
             >
-              <source src={heroVideo} type="video/mp4" />
+              <source src={demoVideo} type="video/mp4" />
             </video>
           </div>
         </div>
@@ -298,6 +348,17 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full border border-black bg-background text-black hover:bg-black hover:text-white transition-all duration-300 flex items-center justify-center group shadow-lg"
+          aria-label="Scroll to top"
+        >
+          <ArrowUp className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1" strokeWidth={2.5} />
+        </button>
+      )}
 
       <Footer />
     </div>
