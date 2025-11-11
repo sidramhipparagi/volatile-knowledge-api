@@ -76,6 +76,101 @@ export const blogPosts: Record<string, BlogPost> = {
       <h2 class="text-2xl font-medium mb-4 mt-8">Input Validation</h2>
       <p class="mb-6">Never trust user input. Validate and sanitize all incoming data to prevent injection attacks and ensure data integrity.</p>
     `
+  },
+  "microservices-architecture": {
+    slug: "microservices-architecture",
+    title: "Microservices Architecture: A Modern Approach",
+    date: "February 28, 2024",
+    image: createBlogImageUrl("img4.jpg"),
+    excerpt: "Understanding microservices and how to implement them effectively in your applications.",
+    content: `
+      <p class="mb-6">Microservices architecture has revolutionized how we build and deploy applications. This guide explores the benefits and challenges of adopting microservices.</p>
+      
+      <h2 class="text-2xl font-medium mb-4 mt-8">What Are Microservices?</h2>
+      <p class="mb-6">Microservices break down applications into smaller, independent services that can be developed, deployed, and scaled separately.</p>
+      
+      <h2 class="text-2xl font-medium mb-4 mt-8">Benefits of Microservices</h2>
+      <p class="mb-6">Independent deployment, technology flexibility, and improved fault isolation are just a few advantages of microservices architecture.</p>
+      
+      <h2 class="text-2xl font-medium mb-4 mt-8">Challenges to Consider</h2>
+      <p class="mb-6">Distributed systems complexity, data consistency, and service discovery require careful planning and implementation.</p>
+    `
+  },
+  "cloud-native-development": {
+    slug: "cloud-native-development",
+    title: "Cloud-Native Development Best Practices",
+    date: "February 20, 2024",
+    image: createBlogImageUrl("img5.jpg"),
+    excerpt: "Build applications designed to thrive in modern cloud environments.",
+    content: `
+      <p class="mb-6">Cloud-native development leverages the full potential of cloud computing. Learn how to build applications that scale effortlessly.</p>
+      
+      <h2 class="text-2xl font-medium mb-4 mt-8">Containerization</h2>
+      <p class="mb-6">Docker and container technologies enable consistent deployment across different environments.</p>
+      
+      <h2 class="text-2xl font-medium mb-4 mt-8">Orchestration with Kubernetes</h2>
+      <p class="mb-6">Kubernetes automates deployment, scaling, and management of containerized applications.</p>
+      
+      <h2 class="text-2xl font-medium mb-4 mt-8">Serverless Computing</h2>
+      <p class="mb-6">Focus on code while the cloud provider manages infrastructure and scaling automatically.</p>
+    `
+  },
+  "graphql-vs-rest": {
+    slug: "graphql-vs-rest",
+    title: "GraphQL vs REST: Choosing the Right API",
+    date: "February 15, 2024",
+    image: createBlogImageUrl("img6.jpg"),
+    excerpt: "Compare GraphQL and REST to make informed decisions for your API strategy.",
+    content: `
+      <p class="mb-6">Choosing between GraphQL and REST can significantly impact your application's performance and developer experience.</p>
+      
+      <h2 class="text-2xl font-medium mb-4 mt-8">REST APIs</h2>
+      <p class="mb-6">REST has been the standard for years, offering simplicity and widespread support across tools and frameworks.</p>
+      
+      <h2 class="text-2xl font-medium mb-4 mt-8">GraphQL Advantages</h2>
+      <p class="mb-6">GraphQL provides flexible queries, reduces over-fetching, and offers strong typing for better developer experience.</p>
+      
+      <h2 class="text-2xl font-medium mb-4 mt-8">When to Use Each</h2>
+      <p class="mb-6">REST works well for simple, predictable data structures, while GraphQL shines in complex, nested data scenarios.</p>
+    `
+  },
+  "devops-automation": {
+    slug: "devops-automation",
+    title: "DevOps Automation: Streamlining Your Workflow",
+    date: "February 10, 2024",
+    image: createBlogImageUrl("img7.jpg"),
+    excerpt: "Automate your development and deployment processes for faster delivery.",
+    content: `
+      <p class="mb-6">DevOps automation reduces manual errors and speeds up delivery cycles. Learn how to implement effective automation strategies.</p>
+      
+      <h2 class="text-2xl font-medium mb-4 mt-8">CI/CD Pipelines</h2>
+      <p class="mb-6">Continuous Integration and Continuous Deployment pipelines automate testing and deployment processes.</p>
+      
+      <h2 class="text-2xl font-medium mb-4 mt-8">Infrastructure as Code</h2>
+      <p class="mb-6">Manage infrastructure through code using tools like Terraform and AWS CloudFormation.</p>
+      
+      <h2 class="text-2xl font-medium mb-4 mt-8">Monitoring and Alerts</h2>
+      <p class="mb-6">Automated monitoring ensures you catch issues before they impact users.</p>
+    `
+  },
+  "api-versioning-strategies": {
+    slug: "api-versioning-strategies",
+    title: "API Versioning Strategies for Long-Term Success",
+    date: "February 5, 2024",
+    image: createBlogImageUrl("img8.jpg"),
+    excerpt: "Learn how to version your APIs effectively to maintain backward compatibility.",
+    content: `
+      <p class="mb-6">API versioning is crucial for maintaining existing clients while evolving your API. Discover the best strategies for versioning.</p>
+      
+      <h2 class="text-2xl font-medium mb-4 mt-8">URL Versioning</h2>
+      <p class="mb-6">Include version numbers in the URL path for clear, explicit versioning that's easy to understand.</p>
+      
+      <h2 class="text-2xl font-medium mb-4 mt-8">Header Versioning</h2>
+      <p class="mb-6">Use custom headers to specify API versions, keeping URLs clean and consistent.</p>
+      
+      <h2 class="text-2xl font-medium mb-4 mt-8">Deprecation Policies</h2>
+      <p class="mb-6">Establish clear deprecation timelines and communicate changes effectively to API consumers.</p>
+    `
   }
 };
 
