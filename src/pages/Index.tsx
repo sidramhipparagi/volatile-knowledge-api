@@ -23,8 +23,8 @@ const Index = () => {
   const navigate = useNavigate();
   const hasScrolledRef = useRef(false);
 
-  // Get all blog posts
-  const blogs = getAllBlogPosts();
+  // Get top 3 blog posts
+  const blogs = getAllBlogPosts().slice(0, 3);
 
   useEffect(() => {
     if (location.hash === "#blog" && !hasScrolledRef.current) {

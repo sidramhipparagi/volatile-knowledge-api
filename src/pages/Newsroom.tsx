@@ -12,15 +12,21 @@ const Newsroom = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      <main className="max-w-7xl mx-auto px-6 py-32">
-        <div className="mb-16">
-          <h1 className="text-5xl md:text-6xl font-medium mb-6 text-black">
-            Newsroom
-          </h1>
-          <p className="text-xl text-black max-w-2xl">
-            Insights, updates, and best practices from our team
-          </p>
+      {/* Hero Section (reused from Pricing) */}
+      <section className="min-h-[60vh] pt-32 pb-20 px-6 flex items-center border-b border-black">
+        <div className="max-w-7xl mx-auto w-full">
+          <div className="flex flex-col items-start justify-start text-left max-w-4xl">
+            <h1 className="text-5xl md:text-6xl mb-6 text-black font-medium">
+              Newsroom
+            </h1>
+            <p className="text-xl text-black max-w-2xl">
+              Insights, updates, and best practices from our team
+            </p>
+          </div>
         </div>
+      </section>
+
+      <main className="max-w-7xl mx-auto px-6 py-32">
 
         <div 
           ref={ref}
