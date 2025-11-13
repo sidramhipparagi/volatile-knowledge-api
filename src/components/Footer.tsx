@@ -1,5 +1,6 @@
 import veLogo from "@/assets/vE_logo.png";
 import { MoveUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
@@ -8,7 +9,7 @@ export const Footer = () => {
         <div className="pl-16 pr-32 pt-32 pb-64 relative">
           <div className="mb-12">
             <img src={veLogo} alt="Volatile Engine Logo" className="h-12 w-auto mb-4 brightness-0 invert" />
-            <h3 className="text-xl tracking-wider mb-6 text-white font-medium" style={{ fontWeight: 500 }}>VOLATILE ENGINE</h3>
+            <h3 className="text-xl tracking-wider mb-6 text-white font-medium" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 700 }}>Volatile Engine</h3>
           </div>
         </div>
         <div className="flex-1 pl-8 pr-4 flex flex-col pt-48 pb-48 relative">
@@ -17,15 +18,15 @@ export const Footer = () => {
               <div>
                 <h4 className="font-normal mb-6 text-white">PRODUCT</h4>
                 <ul className="space-y-3 text-sm text-white">
-                  <li><a href="#" className="hover:text-white transition-colors">Pricing</a></li>
-                  <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li>
-                  <li><a href="#" className="hover:text-white transition-colors">API Reference</a></li>
+                  <li><Link to="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
+                  <li><Link to="/doc" className="hover:text-white transition-colors">Documentation</Link></li>
+                  <li><Link to="/get-started" className="hover:text-white transition-colors">API Reference</Link></li>
                 </ul>
               </div>
               <div>
                 <h4 className="font-normal mb-6 text-white">COMPANY</h4>
                 <ul className="space-y-3 text-sm text-white">
-                  <li><a href="#" className="hover:text-white transition-colors">About</a></li>
+                  <li><Link to="/about" className="hover:text-white transition-colors">About</Link></li>
                   <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
                 </ul>
               </div>

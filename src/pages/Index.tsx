@@ -1,12 +1,11 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { MoveUpRight, ArrowUp } from "lucide-react";
+import { MoveUpRight, ArrowUp, Play, Pause } from "lucide-react";
 import apiFeatureImage from "@/assets/run.png";
 import logoWhite from "@/assets/logo_white.png";
 import heroGradient from "@/assets/hero-gradient.png";
 import heroVideo from "@/assets/hero.mp4";
-import demoVideo from "@/assets/demo.mp4";
 import { useInView } from "@/hooks/use-in-view";
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -19,13 +18,17 @@ const Index = () => {
   const featuresSection3 = useInView();
   const ctaSection = useInView();
   const blogSection = useInView();
+  const videoSection = useInView();
 
   const location = useLocation();
   const navigate = useNavigate();
   const hasScrolledRef = useRef(false);
   const heroSectionRef = useRef<HTMLElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const typingIndexRef = useRef(0);
+  const typingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [animatedCode, setAnimatedCode] = useState("");
+  const [isPaused, setIsPaused] = useState(false);
 
   // Get top 3 blog posts
   const blogs = getAllBlogPosts().slice(0, 3);
@@ -69,18 +72,77 @@ const Index = () => {
     };
   }, []);
 
+  // Animated code typing effect - loops continuously
   useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // Autoplay was prevented, video will need user interaction
-          console.log("Video autoplay was prevented");
-        });
+    if (!videoSection.isInView) {
+      setAnimatedCode("");
+      typingIndexRef.current = 0;
+      if (typingTimeoutRef.current) {
+        clearTimeout(typingTimeoutRef.current);
+        typingTimeoutRef.current = null;
       }
+      return;
     }
-  }, []);
+
+    if (isPaused) {
+      // Clear any pending timeouts when paused
+      if (typingTimeoutRef.current) {
+        clearTimeout(typingTimeoutRef.current);
+        typingTimeoutRef.current = null;
+      }
+      return;
+    }
+
+    const fullCode = `// Example API Request
+
+fetch('https://api.volatileengine.com/v1/generate', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    prompt: 'Your prompt here',
+    model: 'latest'
+  })
+})
+.then(response => response.json())
+.then(data => console.log(data));`;
+
+    const typingSpeed = 30; // milliseconds per character
+    const pauseAfterComplete = 2000; // pause 2 seconds before restarting
+
+    const typeCode = () => {
+      if (isPaused || !videoSection.isInView) {
+        return;
+      }
+      
+      if (typingIndexRef.current < fullCode.length) {
+        setAnimatedCode(fullCode.slice(0, typingIndexRef.current + 1));
+        typingIndexRef.current++;
+        typingTimeoutRef.current = setTimeout(typeCode, typingSpeed);
+      } else {
+        // Code is complete, wait then restart
+        typingTimeoutRef.current = setTimeout(() => {
+          if (!isPaused && videoSection.isInView) {
+            typingIndexRef.current = 0;
+            setAnimatedCode("");
+            typeCode();
+          }
+        }, pauseAfterComplete);
+      }
+    };
+
+    // Start typing after a short delay
+    typingTimeoutRef.current = setTimeout(typeCode, 500);
+
+    return () => {
+      if (typingTimeoutRef.current) {
+        clearTimeout(typingTimeoutRef.current);
+        typingTimeoutRef.current = null;
+      }
+    };
+  }, [videoSection.isInView, isPaused]);
 
   return (
     <div className="min-h-screen">
@@ -117,7 +179,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Section 1 */}
+      {/* Mission section */}
       <section ref={featuresSection1.ref} className="pt-32 pb-60 px-6 border-b border-black">
         <div className="max-w-7xl mx-auto">
           <div className={`grid md:grid-cols-2 gap-16 items-start transition-all duration-700 ${featuresSection1.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -163,9 +225,12 @@ const Index = () => {
               />
             </div>
             <div className="flex h-[720px] flex-col justify-center">
-              <h2 className="text-4xl font-medium mb-6 text-white">
-                Be Volatile While You Build
+            <h2 className="text-3xl mb-6 text-white" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 500 }}>
+                Think Different
               </h2>
+              <h3 className="text-4xl md:text-5xl font-medium mb-6 text-white" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 700 }}>
+                Be Volatile While You Build
+              </h3>
               <p className="text-lg text-white">
                 Access crisp knowledge from the web through our powerful API. 
                 Built for app developers who need reliable, ever changing real-time web data.
@@ -178,9 +243,12 @@ const Index = () => {
       {/* Features Section 2*/}
       <section ref={featuresSection2.ref} className="py-40 px-6 border-b border-black">
         <div className="max-w-7xl mx-auto">
-          <h2 className={`text-3xl font-medium text-center mb-20 text-black transition-all duration-700 ${featuresSection2.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <h2 className="text-3xl mb-6 text-black" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 500 }}>
+                API Features
+              </h2>
+          <h3 className="text-4xl md:text-5xl font-medium mb-20 text-black" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 700 }}>
             Everything you need to build
-          </h2>
+          </h3>
           <div className="grid md:grid-cols-3 gap-8">
             <div className={`p-6 transition-all duration-700 delay-100 ${featuresSection2.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <h3 className="text-xl font-medium mb-3 text-black">Fast & Reliable</h3>
@@ -204,76 +272,35 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section ref={ctaSection.ref} className={`py-60 px-6 transition-all duration-700 border-b border-black ${ctaSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-medium mb-6 text-black">
-            Ready to start building?
-          </h2>
-          <p className="text-xl text-black mb-8">
-            Join developers who are already building amazing things
-          </p>
-          <Link to="/get-started">
-            <Button size="lg" className="bg-black text-white hover:bg-black/90 font-normal rounded-none px-12 h-14 text-base gap-2 group">
-              Get started
-              <MoveUpRight className="h-6 w-6 transition-transform duration-300 group-hover:rotate-[45deg]" strokeWidth={2.5} stroke="#ffffff" />
-            </Button>
-          </Link>
-        </div>
-      </section>
-
-      {/* Features Section 3 */}
-      <section ref={featuresSection3.ref} className="py-40 px-6 border-b border-black">
-        <div className="max-w-7xl mx-auto">
-          <h2 className={`text-3xl font-medium text-center mb-20 text-black transition-all duration-700 ${featuresSection3.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Everything you need to build
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className={`p-6 transition-all duration-700 delay-100 ${featuresSection3.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <h3 className="text-xl font-medium mb-3 text-black">Fast & Reliable</h3>
-              <p className="text-black">
-                Get instant responses with 99.9% uptime. Built for production use.
-              </p>
-            </div>
-            <div className={`p-6 transition-all duration-700 delay-300 ${featuresSection3.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <h3 className="text-xl font-medium mb-3 text-black">Easy Integration</h3>
-              <p className="text-black">
-                Simple REST API that works with any programming language or framework.
-              </p>
-            </div>
-            <div className={`p-6 transition-all duration-700 delay-500 ${featuresSection3.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <h3 className="text-xl font-medium mb-3 text-black">AI Powered</h3>
-              <p className="text-black">
-                Leverage cutting-edge AI technology to power your applications.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Video Section */}
-      <section className="py-40 px-6 border-b border-black bg-black">
+      <section ref={videoSection.ref} className="py-40 px-6 border-b border-black bg-black">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-medium text-center mb-12 text-white">
+        <h2 className="text-3xl mb-6 text-white" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 500 }}>
+                Demo
+              </h2>
+          <h3 className="text-4xl md:text-5xl font-medium mb-12 text-white" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 700 }}>
             See It In Action
-          </h2>
-          <div className="aspect-video bg-muted overflow-hidden">
-            <video
-              ref={videoRef}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover"
-              onLoadedData={(e) => {
-                const video = e.currentTarget;
-                video.play().catch(() => {
-                  console.log("Video play failed");
-                });
-              }}
+          </h3>
+          <div className="bg-black border border-white p-8 rounded-none font-mono text-sm text-white overflow-hidden h-96 w-full relative">
+            <pre className="whitespace-pre-wrap h-full overflow-y-auto">
+              <code>
+                {animatedCode}
+                {videoSection.isInView && (
+                  <span className="animate-pulse">|</span>
+                )}
+              </code>
+            </pre>
+            <button
+              onClick={() => setIsPaused(!isPaused)}
+              className="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-black border border-white text-white flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 z-10"
+              aria-label={isPaused ? "Play" : "Pause"}
             >
-              <source src={demoVideo} type="video/mp4" />
-            </video>
+              {isPaused ? (
+                <Play className="h-5 w-5 ml-0.5" fill="currentColor" />
+              ) : (
+                <Pause className="h-5 w-5" fill="currentColor" />
+              )}
+            </button>
           </div>
         </div>
       </section>
@@ -311,10 +338,28 @@ const Index = () => {
         </div>
       </section>
 
+      {/* CTA Section */}
+      <section ref={ctaSection.ref} className={`py-60 px-6 transition-all duration-700 border-b border-black ${ctaSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-medium mb-6 text-black" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 700 }}>
+            Ready to start building?
+          </h2>
+          <p className="text-xl text-black mb-8">
+            Join developers who are already building amazing things
+          </p>
+          <Link to="/get-started">
+            <Button size="lg" className="bg-black text-white hover:bg-black/90 font-normal rounded-none px-12 h-14 text-base gap-2 group">
+              Get started
+              <MoveUpRight className="h-6 w-6 transition-transform duration-300 group-hover:rotate-[45deg]" strokeWidth={2.5} stroke="#ffffff" />
+            </Button>
+          </Link>
+        </div>
+      </section>
+
       {/* Blog Section */}
       <section id="blog" ref={blogSection.ref} className="py-40 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className={`text-3xl font-medium text-center mb-12 text-black transition-all duration-700 ${blogSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 className="text-4xl md:text-5xl font-medium text-center mb-12 text-black" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 700 }}>
             Latest from our blog
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
