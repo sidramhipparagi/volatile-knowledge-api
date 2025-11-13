@@ -33,7 +33,7 @@ const Doc = () => {
       {/* Quick Start Section */}
       <section ref={quickStartSection.ref} className="py-40 px-6 border-b border-black">
         <div className="max-w-7xl mx-auto">
-          <h2 className={`text-3xl font-medium text-center mb-20 text-black transition-all duration-700 ${quickStartSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 className="text-3xl md:text-4xl text-center mb-20 text-black" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 700 }}>
             Quick Start Guide
           </h2>
           <div className="grid md:grid-cols-2 gap-12">
@@ -72,7 +72,7 @@ const Doc = () => {
       {/* Resources Section */}
       <section ref={resourcesSection.ref} className="py-40 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className={`text-3xl font-medium text-center mb-20 text-black transition-all duration-700 ${resourcesSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 className="text-3xl md:text-4xl text-center mb-20 text-black" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 700 }}>
             Documentation Resources
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">

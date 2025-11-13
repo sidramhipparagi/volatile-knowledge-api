@@ -121,7 +121,7 @@ const Pricing = () => {
       {/* FAQ Section */}
       <section ref={faqSection.ref} className={`py-40 px-6 transition-all duration-700 ${faqSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-medium text-center mb-20 text-black">
+          <h2 className="text-3xl md:text-4xl text-center mb-20 text-black" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 700 }}>
             Frequently Asked Questions
           </h2>
           <div className="space-y-8">

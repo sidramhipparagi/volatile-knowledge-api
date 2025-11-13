@@ -9,7 +9,7 @@ export const Footer = () => {
         <div className="pl-16 pr-32 pt-32 pb-64 relative">
           <div className="mb-12">
             <img src={veLogo} alt="Volatile Engine Logo" className="h-12 w-auto mb-4 brightness-0 invert" />
-            <h3 className="text-xl tracking-wider mb-6 text-white font-medium" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 700 }}>Volatile Engine</h3>
+            <h3 className="text-2xl mb-6 text-white font-medium" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 500 }}>Volatile Engine</h3>
           </div>
         </div>
         <div className="flex-1 pl-8 pr-4 flex flex-col pt-48 pb-48 relative">

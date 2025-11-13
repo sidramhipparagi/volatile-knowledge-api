@@ -34,7 +34,7 @@ const GetStarted = () => {
       {/* Steps Section */}
       <section ref={stepsSection.ref} className="py-40 px-6 border-b border-black">
         <div className="max-w-7xl mx-auto">
-          <h2 className={`text-3xl font-medium text-center mb-20 text-black transition-all duration-700 ${stepsSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 className="text-3xl md:text-4xl text-center mb-20 text-black" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 700 }}>
             Three Simple Steps
           </h2>
           <div className="grid md:grid-cols-3 gap-12">
@@ -81,7 +81,7 @@ const GetStarted = () => {
       {/* Code Example Section */}
       <section ref={codeSection.ref} className={`py-40 px-6 border-b border-black transition-all duration-700 ${codeSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-medium text-center mb-12 text-black">
+          <h2 className="text-3xl md:text-4xl text-center mb-20 text-black" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 700 }}>
             Simple Integration
           </h2>
           <div className="bg-black text-white p-8 rounded-none font-mono text-sm">
@@ -108,7 +108,7 @@ fetch('https://api.volatileengine.com/v1/generate', {
       {/* CTA Section */}
       <section ref={ctaSection.ref} className={`py-60 px-6 transition-all duration-700 ${ctaSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-medium mb-6 text-black">
+          <h2 className="text-4xl md:text-5xl mb-6 text-black" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 700 }}>
             Ready to build?
           </h2>
           <p className="text-xl text-black mb-8">

@@ -169,9 +169,12 @@ fetch('https://api.volatileengine.com/v1/generate', {
             </Link>
           </div>
           <div className="flex flex-col items-start justify-start text-left max-w-4xl">
-            <h1 className="text-5xl md:text-6xl mb-6 text-white font-medium">
+          <h1 className="text-3xl mb-6 text-white" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 500 }}>
+                Volatile Engine
+              </h1>
+            <h2 className="text-4xl md:text-5xl mb-6 text-white" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 700 }}>
               Building AI Powered Software
-            </h1>
+            </h2>
             <p className="text-xl text-white/90 max-w-2xl">
               Transform your ideas into intelligent applications with our powerful API platform
             </p>
