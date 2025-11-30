@@ -5,15 +5,7 @@ import { MoveUpRight, ArrowUp, Play, Pause } from "lucide-react";
 import apiFeatureImage from "@/assets/run.png";
 import logoWhite from "@/assets/logo_white.png";
 import { useInView } from "@/hooks/use-in-view";
-import { useEffect, useMemo, useRef, useState } from "react";
-import type { CSSProperties } from "react";
-
-type VerbStyle = CSSProperties & {
-  "--vx"?: string;
-  "--vy"?: string;
-  "--scale-from"?: number | string;
-  "--scale-to"?: number | string;
-};
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { getAllBlogPosts } from "@/data/blogs";
 
@@ -35,112 +27,6 @@ const Index = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [animatedCode, setAnimatedCode] = useState("");
   const [isPaused, setIsPaused] = useState(false);
-
-  const verbs = useMemo(
-    () => [
-      "eat",
-      "drink",
-      "sleep",
-      "survive",
-      "walk",
-      "run",
-      "sit",
-      "stand",
-      "move",
-      "rest",
-      "live",
-      "think",
-      "learn",
-      "remember",
-      "forget",
-      "imagine",
-      "decide",
-      "understand",
-      "hope",
-      "believe",
-      "love",
-      "speak",
-      "listen",
-      "read",
-      "write",
-      "ask",
-      "answer",
-      "tell",
-      "explain",
-      "agree",
-      "disagree",
-      "help",
-      "share",
-      "trust",
-      "respect",
-      "forgive",
-      "care",
-      "thank",
-      "smile",
-      "cry",
-      "laugh",
-      "express",
-      "make",
-      "build",
-      "create",
-      "grow",
-      "change",
-      "work",
-      "play",
-      "teach"
-    ],
-    []
-  );
-
-  const verbAnimations = useMemo(
-    () =>
-      verbs.map((word, index) => {
-        const baseTop = 10 + Math.random() * 80;
-        const baseLeft = 5 + Math.random() * 90;
-        const fontSize = 0.9 + Math.random() * 1.8;
-        const duration = 6 + Math.random() * 6;
-        const delay = Math.random() * 3;
-        const amplitudeX = (Math.random() > 0.5 ? 1 : -1) * (20 + Math.random() * 80);
-        const amplitudeY = (Math.random() > 0.5 ? 1 : -1) * (20 + Math.random() * 60);
-        const scaleFrom = 0.85 + Math.random() * 0.3;
-        const scaleTo = 1.05 + Math.random() * 0.35;
-
-        return {
-          word,
-          key: `${word}-${index}`,
-          top: baseTop,
-          left: baseLeft,
-          fontSize,
-          duration,
-          delay,
-          amplitudeX,
-          amplitudeY,
-          scaleFrom,
-          scaleTo
-        };
-      }),
-    [verbs]
-  );
-
-  const verbAnimationStyles = useMemo(
-    () => `
-      @keyframes verbFloat {
-        0% {
-          transform: translate(0, 0) scale(var(--scale-from, 1));
-          opacity: 0.65;
-        }
-        50% {
-          transform: translate(calc(var(--vx, 0px) * 0.5), calc(var(--vy, 0px) * 0.5)) scale(var(--scale-to, 1.1));
-          opacity: 1;
-        }
-        100% {
-          transform: translate(calc(var(--vx, 0px) * -1), calc(var(--vy, 0px) * -1)) scale(var(--scale-from, 1));
-          opacity: 0.85;
-        }
-      }
-    `,
-    []
-  );
 
   // Get top 3 blog posts
   const blogs = getAllBlogPosts().slice(0, 3);
@@ -258,70 +144,45 @@ fetch('https://api.volatileengine.com/v1/generate', {
 
   return (
     <div className="min-h-screen">
-      <style>{verbAnimationStyles}</style>
       <Navigation />
       
       {/* Hero Section */}
       <section
         ref={heroSectionRef}
-        className="min-h-screen pt-32 pb-20 px-6 flex items-center relative border-b border-black overflow-hidden bg-[#f3f2ec]"
+        className="min-h-screen pt-32 pb-20 px-6 flex items-center relative border-b border-black overflow-hidden bg-black"
       >
-        <div className="pointer-events-none absolute inset-0 select-none">
-          {verbAnimations.map((item) => {
-            const style: VerbStyle = {
-              top: `${item.top}%`,
-              left: `${item.left}%`,
-              fontSize: `${item.fontSize}rem`,
-              animation: `verbFloat ${item.duration}s ease-in-out ${item.delay}s infinite alternate`,
-              "--vx": `${item.amplitudeX}px`,
-              "--vy": `${item.amplitudeY}px`,
-              "--scale-from": item.scaleFrom,
-              "--scale-to": item.scaleTo
-            };
-
-            return (
-              <span
-                key={`hero-${item.key}`}
-                style={style}
-                className="absolute font-medium tracking-wide text-black/50"
-              >
-                {item.word}
-              </span>
-            );
-          })}
-        </div>
         <div className="max-w-4xl mx-auto w-full relative z-10 flex flex-col items-center text-center">
-          <div className="border border-black w-full px-10 py-14 flex flex-col items-center text-center gap-10 bg-white/30 backdrop-blur-sm">
+          <div className="border border-white w-full px-10 py-14 flex flex-col items-center text-center gap-10 bg-transparent">
             <div className="space-y-6">
               <h1
-                className="text-3xl text-black"
+                className="text-3xl text-white"
                 style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 500 }}
               >
                 Volatile Engine
               </h1>
               <h2
-                className="text-4xl md:text-5xl text-black"
+                className="text-4xl md:text-5xl text-white"
                 style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 700 }}
               >
                 Building AI Powered Software
               </h2>
-              <p className="text-xl text-black/90">
+              <p className="text-xl text-white/90">
                 Transform your ideas into intelligent applications with our powerful API platform
               </p>
             </div>
             <Link to="/get-started" className="inline-flex">
               <Button
                 size="lg"
-                className="font-bold rounded-none px-12 h-20 text-base gap-2 group border border-black"
-                style={{ backgroundColor: "#000000", color: "#f3f2ec" }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#111111")}
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#000000")}
+                className="font-bold rounded-none px-12 h-20 text-base gap-2 group border border-white"
+                style={{ backgroundColor: "#f3f2ec", color: "#000000" }}
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#ffffff")}
+                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#f3f2ec")}
               >
                 Create API
                 <MoveUpRight
                   className="h-6 w-6 transition-transform duration-300 group-hover:rotate-[45deg]"
                   strokeWidth={2.5}
-                  stroke="#f3f2ec"
+                  stroke="#000000"
                 />
               </Button>
             </Link>
@@ -388,14 +249,14 @@ fetch('https://api.volatileengine.com/v1/generate', {
                 Be Volatile While You Build
               </h3>
               <p className="text-lg text-white">
-                Access crisp knowledge from the web through our powerful API.
+                Access crisp knowledge from the web through our powerful API. 
                 Built for app developers who need reliable, ever changing real-time web data.
               </p>
             </div>
           </div>
         </div>
       </section>
-      
+
       {/* Features Section 2*/}
       <section ref={featuresSection2.ref} className="py-40 px-6 border-b border-black">
         <div className="max-w-7xl mx-auto">

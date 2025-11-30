@@ -51,7 +51,7 @@ export const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 pt-12 pb-12 border-t border-white">
+        <div className="absolute bottom-0 left-0 right-0 pt-12 pb-12">
           <div className="text-center text-xs text-white">
             © 2025 Volatile Engine. All rights reserved.
           </div>
