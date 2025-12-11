@@ -6,8 +6,7 @@ import apiFeatureImage from "@/assets/run.png";
 import logoWhite from "@/assets/logo_white.png";
 import { useInView } from "@/hooks/use-in-view";
 import { useEffect, useRef, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { getAllBlogPosts } from "@/data/blogs";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   const imageSection = useInView();
@@ -15,12 +14,8 @@ const Index = () => {
   const featuresSection2 = useInView();
   const featuresSection3 = useInView();
   const ctaSection = useInView();
-  const blogSection = useInView();
   const videoSection = useInView();
 
-  const location = useLocation();
-  const navigate = useNavigate();
-  const hasScrolledRef = useRef(false);
   const heroSectionRef = useRef<HTMLElement>(null);
   const typingIndexRef = useRef(0);
   const typingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -28,24 +23,9 @@ const Index = () => {
   const [animatedCode, setAnimatedCode] = useState("");
   const [isPaused, setIsPaused] = useState(false);
 
-  // Get top 3 blog posts
-  const blogs = getAllBlogPosts().slice(0, 3);
-
   const scrollToTop = () => {
     heroSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
-
-  useEffect(() => {
-    if (location.hash === "#blog" && !hasScrolledRef.current) {
-      hasScrolledRef.current = true;
-      blogSection.ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-      
-      // Remove the hash from URL after scrolling
-      setTimeout(() => {
-        navigate("/", { replace: true });
-      }, 1000);
-    }
-  }, [location.hash, navigate]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -371,44 +351,6 @@ fetch('https://api.volatileengine.com/v1/generate', {
               <MoveUpRight className="h-6 w-6 transition-transform duration-300 group-hover:rotate-[45deg]" strokeWidth={2.5} stroke="#ffffff" />
             </Button>
           </Link>
-        </div>
-      </section>
-
-      {/* Blog Section */}
-      <section id="blog" ref={blogSection.ref} className="py-40 px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-medium text-center mb-12 text-black" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 700 }}>
-            Latest from our blog
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {blogs.map((blog, index) => {
-              const delays = ['delay-100', 'delay-300', 'delay-500'];
-              const delay = delays[index % delays.length];
-              
-              return (
-                <Link 
-                  key={blog.slug}
-                  to={`/blog/${blog.slug}`}
-                  className={`group transition-all duration-700 ${delay} ${blogSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-                >
-                  <div className="aspect-video overflow-hidden bg-muted mb-4">
-                    <img 
-                      src={blog.image} 
-                      alt={blog.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <h3 className="text-xl font-medium mb-2 text-black group-hover:underline">
-                    {blog.title}
-                  </h3>
-                  <p className="text-black mb-3">
-                    {blog.excerpt}
-                  </p>
-                  <span className="text-black text-sm">{blog.date}</span>
-                </Link>
-              );
-            })}
-          </div>
         </div>
       </section>
 
