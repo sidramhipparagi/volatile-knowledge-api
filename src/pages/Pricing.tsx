@@ -33,7 +33,7 @@ const Pricing = () => {
             <div className={`border border-black p-8 transition-all duration-700 delay-100 ${pricingSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <h3 className="text-2xl font-medium mb-2 text-black">Starter</h3>
               <div className="mb-6">
-                <span className="text-4xl font-medium text-black">$29</span>
+                <span className="text-4xl font-medium text-black">₹2,499</span>
                 <span className="text-black">/month</span>
               </div>
               <ul className="space-y-3 mb-8">
@@ -59,7 +59,7 @@ const Pricing = () => {
             <div className={`border-2 border-black p-8 bg-black text-white transition-all duration-700 delay-300 ${pricingSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <h3 className="text-2xl font-medium mb-2">Professional</h3>
               <div className="mb-6">
-                <span className="text-4xl font-medium">$99</span>
+                <span className="text-4xl font-medium">₹7,999</span>
                 <span>/month</span>
               </div>
               <ul className="space-y-3 mb-8">
