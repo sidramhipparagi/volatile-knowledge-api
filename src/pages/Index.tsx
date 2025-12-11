@@ -164,10 +164,10 @@ fetch('https://api.volatileengine.com/v1/generate', {
                 className="text-4xl md:text-5xl text-white"
                 style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 700 }}
               >
-                Building AI Powered Software
+                AI-Powered Voice Customer Service
               </h2>
               <p className="text-xl text-white/90">
-                Transform your ideas into intelligent applications with our powerful API platform
+                Replace traditional support with intelligent AI voice assistants that interact directly with your customers
               </p>
             </div>
             <Link to="/get-started" className="inline-flex">
@@ -178,7 +178,7 @@ fetch('https://api.volatileengine.com/v1/generate', {
                 onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#ffffff")}
                 onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#f3f2ec")}
               >
-                Create API
+                Get Started
                 <MoveUpRight
                   className="h-6 w-6 transition-transform duration-300 group-hover:rotate-[45deg]"
                   strokeWidth={2.5}
@@ -200,14 +200,14 @@ fetch('https://api.volatileengine.com/v1/generate', {
                 Our Mission
               </h2>
               <h3 className="text-4xl md:text-5xl text-black" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 700 }}>
-                Best web knowledge for all AI powered apps
+                Redefining Customer Communication with AI Voice
               </h3>
             </div>
             
             {/* Right Side */}
             <div>
               <p className="text-lg text-black mb-6 leading-relaxed">
-                We are building a reliable web knowledge API that developers love. Our focus is simple: performance, clarity, and developer experience. We provide access to crisp knowledge from the web through our powerful API, built for app developers who need reliable, real-time web data. Our platform enables AI-powered applications to access the most up-to-date information from across the web, ensuring your applications stay current and accurate.
+                We are building an AI-driven voice customer service platform designed for modern businesses. Our mission is simple yet transformative: to replace traditional, slow, multi-channel customer support with a single, intelligent AI voice system that interacts directly with customers through voice and email. Operating from India, we aim to redefine how companies communicate with their customers by leveraging deep automation, clarity, and efficiency at scale.
               </p>
               <Link to="/about" className="text-xl text-black underline inline-flex items-center gap-2 group mt-8" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 500 }}>
                 <span>Learn more</span>
@@ -240,17 +240,16 @@ fetch('https://api.volatileengine.com/v1/generate', {
                 className="text-3xl text-white"
                 style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 500 }}
               >
-                Think Different
+                Our Solution
               </h2>
               <h3
                 className="text-4xl md:text-5xl font-medium text-white"
                 style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 700 }}
               >
-                Be Volatile While You Build
+                Voice-First AI Assistants
               </h3>
               <p className="text-lg text-white">
-                Access crisp knowledge from the web through our powerful API. 
-                Built for app developers who need reliable, ever changing real-time web data.
+                AI-powered voice assistants that handle complete customer interactions—answering questions, guiding actions, resolving issues, and escalating only when needed. Instead of navigating menus or chatbots, users simply speak.
               </p>
             </div>
           </div>
@@ -261,28 +260,28 @@ fetch('https://api.volatileengine.com/v1/generate', {
       <section ref={featuresSection2.ref} className="py-40 px-6 border-b border-black">
         <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl mb-6 text-black" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 500 }}>
-                API Features
+                Platform Features
               </h2>
           <h3 className="text-4xl md:text-5xl font-medium mb-20 text-black" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 700 }}>
-            Everything you need to build
+            Technology & Integration
           </h3>
           <div className="grid md:grid-cols-3 gap-8">
             <div className={`p-6 transition-all duration-700 delay-100 ${featuresSection2.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <h3 className="text-xl font-medium mb-3 text-black">Fast & Reliable</h3>
+              <h3 className="text-xl font-medium mb-3 text-black">High-Fidelity Voice</h3>
               <p className="text-black">
-                Get instant responses with 99.9% uptime. Built for production use.
+                Real-time voice interactions powered by ElevenLabs Voice API, ensuring natural conversational quality and responsiveness.
               </p>
             </div>
             <div className={`p-6 transition-all duration-700 delay-300 ${featuresSection2.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <h3 className="text-xl font-medium mb-3 text-black">Easy Integration</h3>
+              <h3 className="text-xl font-medium mb-3 text-black">Deep Integration</h3>
               <p className="text-black">
-                Simple REST API that works with any programming language or framework.
+                Securely connects with your business databases, tools, and workflows to provide accurate, context-aware responses.
               </p>
             </div>
             <div className={`p-6 transition-all duration-700 delay-500 ${featuresSection2.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <h3 className="text-xl font-medium mb-3 text-black">AI Powered</h3>
+              <h3 className="text-xl font-medium mb-3 text-black">Custom Voice Agents</h3>
               <p className="text-black">
-                Leverage cutting-edge AI technology to power your applications.
+                Each assistant becomes a specialized asset—capable of understanding business logic and reducing support workloads drastically.
               </p>
             </div>
           </div>
@@ -327,31 +326,33 @@ fetch('https://api.volatileengine.com/v1/generate', {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-12 text-center">
             <div>
-              <div className="text-5xl font-medium mb-3 text-black">99.9%</div>
-              <p className="text-xl text-black">Uptime Guarantee</p>
+              <div className="text-5xl font-medium mb-3 text-black">Voice-First</div>
+              <p className="text-xl text-black">SaaS Platform</p>
             </div>
             <div>
-              <div className="text-5xl font-medium mb-3 text-black">10M+</div>
-              <p className="text-xl text-black">API Calls Daily</p>
+              <div className="text-5xl font-medium mb-3 text-black">24/7</div>
+              <p className="text-xl text-black">AI Support Available</p>
             </div>
             <div>
-              <div className="text-5xl font-medium mb-3 text-black">50ms</div>
-              <p className="text-xl text-black">Average Response Time</p>
+              <div className="text-5xl font-medium mb-3 text-black">Scalable</div>
+              <p className="text-xl text-black">From Startup to Enterprise</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonial Section */}
+      {/* Problem & Opportunity Section */}
       <section className="py-40 px-6 border-b border-black">
         <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl mb-6 text-black" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 500 }}>
+            The Problem We Solve
+          </h2>
           <blockquote className="text-2xl font-medium mb-6 text-black">
-            "Volatile Engine's API transformed how we build AI features. The integration was seamless and the performance is outstanding."
+            "Today's customer service landscape is expensive, inconsistent, and fragmented across phone calls, forms, chats, and ticketing systems. Customers struggle to reach the right support, and businesses spend heavily on teams and tools that still fail to deliver seamless experiences."
           </blockquote>
-          <div className="text-black">
-            <p className="font-medium">Sarah Chen</p>
-            <p>CTO, TechCorp</p>
-          </div>
+          <p className="text-lg text-black">
+            The global shift toward automation has created a massive opportunity for a unified voice-first solution that works quickly, reliably, and integrates deeply with business data.
+          </p>
         </div>
       </section>
 
@@ -359,10 +360,10 @@ fetch('https://api.volatileengine.com/v1/generate', {
       <section ref={ctaSection.ref} className={`py-60 px-6 transition-all duration-700 border-b border-black ${ctaSection.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-medium mb-6 text-black" style={{ fontFamily: "'Helvetica Now Display', system-ui, sans-serif", fontWeight: 700 }}>
-            Ready to start building?
+            Ready to transform your customer service?
           </h2>
           <p className="text-xl text-black mb-8">
-            Join developers who are already building amazing things
+            Join businesses already using AI voice assistants to deliver exceptional customer experiences
           </p>
           <Link to="/get-started">
             <Button size="lg" className="bg-black text-white hover:bg-black/90 font-normal rounded-none px-12 h-14 text-base gap-2 group">
