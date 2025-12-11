@@ -63,14 +63,27 @@ const About = () => {
         </div>
 
         <div className="border-t border-black pt-16">
-          <h2 className="text-3xl font-medium mb-4 text-black">Leadership</h2>
-          <p className="text-black mb-4">
-            <strong>Sidram Hipparagi</strong> — Founder & CEO
-          </p>
-          <p className="text-black">
-            Leading product direction, architecture, and business strategy to redefine how companies 
-            communicate with their customers by leveraging deep automation, clarity, and efficiency at scale.
-          </p>
+          <h2 className="text-3xl font-medium mb-8 text-black">Leadership</h2>
+          <div className="grid md:grid-cols-2 gap-12">
+            <div>
+              <p className="text-black mb-2">
+                <strong>Sidram Hipparagi</strong> — Founder & CEO
+              </p>
+              <p className="text-black">
+                Leading product direction, architecture, and business strategy to redefine how companies 
+                communicate with their customers by leveraging deep automation, clarity, and efficiency at scale.
+              </p>
+            </div>
+            <div>
+              <p className="text-black mb-2">
+                <strong>Sudeep Gowda</strong> — Co-Founder & CTO
+              </p>
+              <p className="text-black">
+                Driving technology innovation and engineering excellence to build scalable, 
+                high-performance AI voice systems that deliver exceptional customer experiences.
+              </p>
+            </div>
+          </div>
         </div>
       </main>
 
