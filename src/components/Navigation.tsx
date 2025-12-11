@@ -18,10 +18,6 @@ const heroContents: Record<string, HeroContent> = {
     title: "Documentation",
     description: "Everything you need to integrate and build with our API platform"
   },
-  newsroom: {
-    title: "Newsroom",
-    description: "Insights, updates, and best practices from our team"
-  },
   about: {
     title: "About",
     description: "Learn more about our mission and the team building Volatile Engine."
@@ -142,7 +138,6 @@ export const Navigation = () => {
           }`}>
             <NavButton label="Pricing" to="/pricing" onHover={setHoveredContent} />
             <NavButton label="Doc" to="/doc" onHover={setHoveredContent} />
-            <NavButton label="Newsroom" to="/newsroom" onHover={setHoveredContent} />
             <NavButton label="About" to="/about" onHover={setHoveredContent} />
           </div>
           <div className={`flex items-center h-full ${
